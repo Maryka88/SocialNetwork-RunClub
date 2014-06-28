@@ -6,19 +6,19 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-  <%= render "layouts/shit" %>
+  <%= render "layouts/shit" %> <!-- prendo parte shit del layout -->
 </head>
 <body>
 
 <!-- Fixed navbar -->
-<%= render "layouts/header" %>
+<%= render "layouts/header" %> <!-- prendo parte header del layout -->
 
 <div class="container">
     <!-- Page content -->
     <%= yield %>
 
     <!-- Footer -->
-    <%= render "layouts/footer" %>
+    <%= render "layouts/footer" %> <!-- prendo parte footer del layout -->
 
   </div>
 
