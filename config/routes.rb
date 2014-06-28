@@ -8,6 +8,7 @@ Flix::Application.routes.draw do
 
   root to: 'pages#home'
 
+  #route per pagine statiche
   match '/about', to: 'pages#about'
   match '/faq', to: 'pages#faq'
   match '/contact', to: 'pages#contact'
