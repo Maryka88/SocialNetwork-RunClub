@@ -22,6 +22,7 @@ end
 
 gem 'jquery-rails'
 
+#aggiungo gemma
 gem 'bootstrap-sass', '3.1.1'
 
 # To use ActiveModel has_secure_password
