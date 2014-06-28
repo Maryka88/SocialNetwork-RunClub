@@ -22,11 +22,18 @@ end
 
 gem 'jquery-rails'
 
-#aggiungo gemma
+#aggiungo gemme
 gem 'bootstrap-sass', '3.1.1'
+
+group :development do
+  gem 'annotate', '2.5.0' #per vedere annotazioni e info di debug in ambiente development
+end
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0' #presente ma commentato - per funzioni di hash
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
