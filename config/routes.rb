@@ -14,6 +14,8 @@ Flix::Application.routes.draw do
 
   match '/signup', to: 'users#new'
 
+  #per gestire le risorse messe a disp dal modello degli ut e dal suo controllore
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
