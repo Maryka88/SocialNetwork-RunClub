@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
        # messaggio di benvenuto al salvataggio
-       flash[:success] = 'Benvenuto nel SNS di Maryka!'
+       flash[:success] = 'Benvenuto nel SocialNetwork di Maryka!'
        # login automatico ut
        sign_in @user
        # salvataggio ok redirect su profilo
