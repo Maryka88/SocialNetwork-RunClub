@@ -14,4 +14,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def create
+    # utente creato tramite dati passati da form
+    @user = User.new(params[:user])
+    if @user.save
+       # salvataggio ok redirect su profilo
+       redirect_to @user
+    else
+       # problema e redirect su registrazione
+       render 'new'
+    end
+  end
+
 end
