@@ -14,8 +14,15 @@ Flix::Application.routes.draw do
 
   match '/signup', to: 'users#new'
 
+  match '/signin', to: 'sessions#new'
+  # signout tramite richiesta  HTTP DELETE
+  match '/signout', to: 'sessions#destroy', via: :delete
+
   #per gestire le risorse messe a disp dal modello degli ut e dal suo controllore
   resources :users
+
+  #per gestire risorse session (solo new, create and destroy)
+  resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
