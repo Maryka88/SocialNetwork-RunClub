@@ -18,6 +18,8 @@ class UsersController < ApplicationController
     # utente creato tramite dati passati da form
     @user = User.new(params[:user])
     if @user.save
+       # messaggio di benvenuto al salvataggio
+       flash[:success] = 'Benvenuto nel SNS di Maryka!'
        # salvataggio ok redirect su profilo
        redirect_to @user
     else

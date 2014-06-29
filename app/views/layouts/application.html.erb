@@ -4,6 +4,7 @@
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <!-- per impedire false richieste cross-site-->
   <%= csrf_meta_tags %>
 
   <%= render "layouts/shit" %> <!-- prendo parte shit del layout -->
@@ -15,6 +16,15 @@
 
 <div class="container">
     <!-- Page content -->
+
+    <% # messaggio flash %>
+    <% flash.each do |key, value| %>
+         <div class="alert alert-<%= key %> alert-dismissable">
+             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+             <%= value %>
+         </div>
+    <% end %>
+
     <%= yield %>
 
     <!-- Footer -->
