@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   # controlla se l'utente è loggato per funz di modifica
-  before_filter :signed_in_user, only: [:edit, :update]
+  before_filter :signed_in_user, only: [:edit, :update, :index]
   # controlla se utente modifica proprio profilo (può mod solo il proprio)
   before_filter :correct_user, only: [:edit, :update]
 
@@ -60,6 +60,11 @@ class UsersController < ApplicationController
            # aggiornamento non riuscito
            render 'edit'
     end
+  end
+
+  def index
+    # prendo tutti gli utenti del db
+    @users = User.all
   end
 
   private

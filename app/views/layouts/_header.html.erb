@@ -20,7 +20,7 @@
         <li><%=link_to "Faq", faq_path %></li>
 
         <% if signed_in? %>
-            <li><%= link_to "Utenti", '#' %></li>
+            <li><%= link_to "Utenti", users_path %></li>
             <li class="dropdown">
                <a href="#" class="dropdown-toggle" id="accountMenu" data-toggle="dropdown">Account <span class="caret"></span></a>
                <ul class="dropdown-menu" role="menu" aria-labelledby="accountMenu">
