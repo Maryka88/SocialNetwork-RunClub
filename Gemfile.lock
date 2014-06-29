@@ -34,6 +34,8 @@ GEM
     bcrypt-ruby (3.0.1-x86-mingw32)
     bootstrap-sass (3.1.1.0)
       sass (~> 3.2)
+    bootstrap-will_paginate (0.0.10)
+      will_paginate
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -104,6 +106,7 @@ GEM
     uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    will_paginate (3.0.3)
 
 PLATFORMS
   x86-mingw32
@@ -112,6 +115,7 @@ DEPENDENCIES
   annotate (= 2.5.0)
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass (= 3.1.1)
+  bootstrap-will_paginate (= 0.0.10)
   coffee-rails (~> 3.2.1)
   faker (= 1.0.1)
   jquery-rails
@@ -119,3 +123,4 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
+  will_paginate (= 3.0.3)
