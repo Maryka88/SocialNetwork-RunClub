@@ -20,6 +20,8 @@ class UsersController < ApplicationController
     if @user.save
        # messaggio di benvenuto al salvataggio
        flash[:success] = 'Benvenuto nel SNS di Maryka!'
+       # login automatico ut
+       sign_in @user
        # salvataggio ok redirect su profilo
        redirect_to @user
     else
