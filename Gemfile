@@ -29,7 +29,8 @@ group :development do
   gem 'annotate', '2.5.0' #per vedere annotazioni e info di debug in ambiente development
 end
 
-
+# per generare utenti/dati finti
+gem 'faker', '1.0.1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
