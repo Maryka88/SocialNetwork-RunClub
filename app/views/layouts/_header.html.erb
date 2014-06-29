@@ -18,7 +18,21 @@
         <% #link_to is the Rails helper to create links (it generates <a...> tags) %>
         <li><%=link_to "Home", root_path %></li>
         <li><%=link_to "Faq", faq_path %></li>
-        <li><%=link_to "Sign in", "#" %></li>
+
+        <% if signed_in? %>
+            <li><%= link_to "Utenti", '#' %></li>
+            <li class="dropdown">
+               <a href="#" class="dropdown-toggle" id="accountMenu" data-toggle="dropdown">Account <span class="caret"></span></a>
+               <ul class="dropdown-menu" role="menu" aria-labelledby="accountMenu">
+                    <li><%= link_to "Profilo", current_user %></li>
+                    <li><%= link_to "Impostazioni", '#' %></li>
+                    <li class="divider"></li>
+                    <li><%= link_to "Logout", signout_path, method: "delete" %></li>
+               </ul>
+            </li>
+         <% else %>
+            <li><%=link_to "Login", signin_path %></li>
+         <% end %>
       </ul>
     </div> <!--/.nav-collapse -->
   </div> <!-- /.container-fluid -->
