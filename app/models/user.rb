@@ -8,6 +8,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
 #
 
 # modello dell'utente
@@ -16,6 +17,11 @@ class User < ActiveRecord::Base
 
   #per usare sistema di autenticazione di Rails
   has_secure_password
+
+  # downcase della mail prima del salvataggio dell'utente
+  before_save { |user| user.email = email.downcase }
+  # chiamo il metodo privato create_remember_token prima del salvataggio dell'utente
+  before_save :create_remember_token
 
   #name sempre presente e con lunghezza massima di 50 caratteri
   validates :name, :presence => true, :length => { :maximum => 50 }
@@ -28,4 +34,13 @@ class User < ActiveRecord::Base
 
   #password di minimo 6 caratteri, le due password sono obbligatorie e validitate da has_secure_password
   validates :password, :length => { :minimum => 6}
+
+  # meotodo privato
+  private
+
+  def create_remember_token
+  # creo stringa random per remember token univoco
+    self.remember_token = SecureRandom.urlsafe_base64
+  end
+
 end
