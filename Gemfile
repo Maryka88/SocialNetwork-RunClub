@@ -32,7 +32,7 @@ end
 # per generare utenti/dati finti
 gem 'faker', '1.0.1'
 
-# per aggiungere paginazione (stile -> Bootstrap)
+# per aggiungere paginazione stile Bootstrap
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.10'
 

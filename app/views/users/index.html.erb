@@ -3,7 +3,7 @@
 
 <h1>Tutti gli Utenti</h1>
 
-<%= will_paginate %>
+<%= will_paginate @users %>
 
 <ul class="users">
    <% @users.each do |user| %>
@@ -14,4 +14,4 @@
    <% end %>
 </ul>
 
-<%= will_paginate %>
+<%= will_paginate @users %>
