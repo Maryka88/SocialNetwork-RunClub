@@ -28,4 +28,10 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
 
+  # controllo se l'utente dato coincide con l'utente corrente (per funz di autorizzazione)
+  # user - l'utente per il quale si chiede autorizzazione
+  def current_user?(user)
+    user == current_user
+  end
+
 end
