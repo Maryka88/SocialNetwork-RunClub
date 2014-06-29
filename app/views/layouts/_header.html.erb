@@ -25,7 +25,7 @@
                <a href="#" class="dropdown-toggle" id="accountMenu" data-toggle="dropdown">Account <span class="caret"></span></a>
                <ul class="dropdown-menu" role="menu" aria-labelledby="accountMenu">
                     <li><%= link_to "Profilo", current_user %></li>
-                    <li><%= link_to "Impostazioni", '#' %></li>
+                    <li><%= link_to "Impostazioni", edit_user_path(current_user) %></li>
                     <li class="divider"></li>
                     <li><%= link_to "Logout", signout_path, method: "delete" %></li>
                </ul>

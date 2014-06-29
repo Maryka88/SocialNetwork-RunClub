@@ -30,4 +30,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    # utente trovato tramite dati passati da form
+    @user = User.find(params[:id])
+  end
+
+  def update
+    # utente trovato tramite dati passati da form
+    @user = User.find(params[:id])
+    # se aggiornamento ok
+    if @user.update_attributes(params[:user])
+           # messaggio di conferma
+           flash[:success] = 'Profilo aggiornato'
+           # re-login
+           sign_in @user
+           # redirect a profilo
+           redirect_to @user
+    else
+           # aggiornamento non riuscito
+           render 'edit'
+    end
+   end
+
 end
