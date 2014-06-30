@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
   # controlla se l'utente è loggato per funz di modifica
-  before_filter :signed_in_user, only: [:edit, :update, :index]
+  before_filter :signed_in_user, only: [:edit, :update, :index, :destroy]
   # controlla se utente modifica proprio profilo (può mod solo il proprio)
   before_filter :correct_user, only: [:edit, :update]
+  # controllo se l'utente corrente è amministratore
+  before_filter :admin_user, only: :destroy
 
   def show
     #prendo utente dall'id :id
@@ -70,6 +72,12 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = 'Utente eliminato!'
+    redirect_to users_url
+  end
+
   private
 
   # redirect a pagina di login se l'utente non è loggato
@@ -83,6 +91,11 @@ class UsersController < ApplicationController
     # inizializza l'oggetto @user (tolto da funz edit e update)
     @user = User.find(params[:id])
     redirect_to root_path unless current_user?(@user) # il met current_user?(user)è definito nel SessionsHelper
+  end
+
+  # redirect a homepage se l'utente non è amministratore
+  def admin_user
+    redirect_to root_path unless current_user.admin?
   end
 
 end
