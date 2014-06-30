@@ -9,6 +9,7 @@
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
 #  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
 #
 
 # modello dell'utente
@@ -17,6 +18,9 @@ class User < ActiveRecord::Base
 
   #per usare sistema di autenticazione di Rails
   has_secure_password
+
+  # ogni utente può avere più post, e se viene cancellato anche i suoi post vengono rimossi
+  has_many :posts, dependent: :destroy
 
   # downcase della mail prima del salvataggio dell'utente
   before_save { |user| user.email = email.downcase }
