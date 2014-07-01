@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   def show
     #prendo utente dall'id :id
     @user = User.find(params[:id])
+
+    # prende e pagina i post associati a un dato utente
+    @posts = @user.posts.paginate(page: params[:page])
   end
 
   def new

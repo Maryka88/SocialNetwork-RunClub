@@ -1,0 +1,7 @@
+<li>
+  <strong><%= post.title %></strong>
+  <span class="content"><%= post.content %></span>
+  <span class="timestamp">
+   Pubblicato <%= time_ago_in_words(post.created_at) %> fa
+  </span>
+</li>

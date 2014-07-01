@@ -92,6 +92,38 @@ input {
   }
 }
 
+/* posts */
+
+.posts {
+  list-style: none;
+  margin: 10px 0 0 0;
+  padding-left: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    }
+}
+
+.content {
+  display: block;
+}
+
+.timestamp {
+  color: $gray-light;
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.field {
+    textarea {
+      height: 100px;
+      margin-bottom: 5px;
+    }
+}
+
 /* varie */
 
 .debug_dump {
