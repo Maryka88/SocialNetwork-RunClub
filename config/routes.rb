@@ -24,6 +24,9 @@ Flix::Application.routes.draw do
   #per gestire risorse session (solo new, create and destroy)
   resources :sessions, only: [:new, :create, :destroy]
 
+  # default routes per Posts controller (solo create e destroy - le altre operaz tramite Users controller)
+  resources :posts, only: [:create, :destroy]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

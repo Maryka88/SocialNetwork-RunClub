@@ -1,11 +1,26 @@
 <!--imposto il titolo della pagina con il metodo provide.. assegno titolo a :title-->
 <% provide :title, 'Home' %>
 
-<div class="jumbotron text-center"> <!--classi bootstrap -->
-    <h1>Benvenuto nel SocialNetwork<br />di Marika</h1>
-    <h2>
-       Registrati o fai il Login <%#= link_to "SocialNetwork", root_path %>.
-    </h2>
+<% if signed_in? %>
+    <div class="row">
+       <aside class="col-md-3">
+         <section>
+            <%= render 'shared/user_info' %>
+         </section>
+       </aside>
+       <div class="col-md-9">
+         <%= render 'shared/post_form' %>
+       </div>
+    </div>
+<% else %>
 
-    <%= link_to "Registrati!", signup_path, class:"btn btn-primary btn-lg", role:"button"%> <!--classi bootstrap -->
-</div>
+    <div class="jumbotron text-center"> <!--classi bootstrap -->
+        <h1>Benvenuto nel SocialNetwork<br />di Marika</h1>
+        <h2>
+            Registrati o fai il <%= link_to "Login", signin_path %> <%#= link_to "SocialNetwork", root_path %>.
+        </h2>
+
+        <%= link_to "Registrati!", signup_path, class:"btn btn-primary btn-lg", role:"button"%> <!--classi bootstrap -->
+    </div>
+
+<% end %>

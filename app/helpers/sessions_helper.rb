@@ -34,4 +34,10 @@ module SessionsHelper
     user == current_user
   end
 
+  # redirect a signi in se utente non loggato
+  def signed_in_user
+    redirect_to signin_url, notice: "Fai il login" unless signed_in?
+    # flash[:notice] = "Please sign in"
+  end
+
 end

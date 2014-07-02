@@ -123,6 +123,10 @@ input {
       margin-bottom: 5px;
     }
 }
+.btn-home {
+  max-width: 30%;
+  @extend .pull-right;
+}
 
 /* varie */
 

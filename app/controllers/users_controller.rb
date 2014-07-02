@@ -84,10 +84,10 @@ class UsersController < ApplicationController
   private
 
   # redirect a pagina di login se l'utente non è loggato
-  def signed_in_user
-    redirect_to signin_url, notice: "Fai il login" unless signed_in?
+  #def signed_in_user
+    #redirect_to signin_url, notice: "Fai il login" unless signed_in?
     # notice: "Fai il login" è uguale a flash[:notice] = "Fai il login"
-  end
+  #end
 
   # redirect a home se l'utente corrente non è quello "giusto"
   def correct_user
