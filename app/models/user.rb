@@ -22,6 +22,11 @@ class User < ActiveRecord::Base
   # ogni utente può avere più post, e se viene cancellato anche i suoi post vengono rimossi
   has_many :posts, dependent: :destroy
 
+  # ogni utente può avere molte relationship
+  # definiamo esplicitamente la chiave esterna e facciamo in modo che se l'utente viene eliminato, vengono
+  # eliminate anche le sue relationship
+  has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
+
   # downcase della mail prima del salvataggio dell'utente
   before_save { |user| user.email = email.downcase }
   # chiamo il metodo privato create_remember_token prima del salvataggio dell'utente

@@ -11,4 +11,10 @@
 
 class Relationship < ActiveRecord::Base
   attr_accessible :followed_id
+
+  # relationship con follower ( User model)
+  belongs_to :follower, class_name: 'User'
+
+  # relationship con followed ( User model)
+  belongs_to :followed, class_name: 'User'
 end
