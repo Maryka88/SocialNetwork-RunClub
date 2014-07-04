@@ -4,4 +4,7 @@
   <span class="timestamp">
    Pubblicato <%= time_ago_in_words(post.created_at) %> fa
   </span>
+  <% if current_user?(post.user) %>
+      | <%= link_to 'elimina', post, method: :delete, data: { confirm: 'Sei sicuro?' }, title: post.content %>
+  <% end %>
 </li>
