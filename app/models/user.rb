@@ -27,6 +27,16 @@ class User < ActiveRecord::Base
   # eliminate anche le sue relationship
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
 
+  # ogni utente può avere molti followed users, attraverso la tabella relationships
+  # siccome followed_users non esiste, indichiamo a Rails la colonna corretta della tab relat. (con source: "followed_id")
+  has_many :followed_users, through: :relationships, source: :followed
+
+  # ogni utente può avere molte "reverse" relationships
+  has_many :reverse_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
+
+  #ogni utente può avere molti followers, attraverso reverse relationships
+  has_many :followers, through: :reverse_relationships
+
   # downcase della mail prima del salvataggio dell'utente
   before_save { |user| user.email = email.downcase }
   # chiamo il metodo privato create_remember_token prima del salvataggio dell'utente
@@ -43,6 +53,21 @@ class User < ActiveRecord::Base
 
   #password di minimo 6 caratteri, le due password sono obbligatorie e validitate da has_secure_password
   validates :password, :length => { :minimum => 6}
+
+  # sta seguendo l'utente dato?
+  def following?(other_user)
+    relationships.find_by_followed_id(other_user.id)
+  end
+
+  # segui l'utente
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+
+  # non seguire più
+  def unfollow!(other_user)
+    relationships.find_by_followed_id(other_user.id).destroy
+  end
 
   # meotodo privato
   private
