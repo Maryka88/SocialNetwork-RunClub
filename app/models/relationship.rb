@@ -17,4 +17,8 @@ class Relationship < ActiveRecord::Base
 
   # relationship con followed ( User model)
   belongs_to :followed, class_name: 'User'
+
+  #campi obbligatori della relationship
+  validates :follower_id, presence: true
+  validates :followed_id, presence: true
 end
