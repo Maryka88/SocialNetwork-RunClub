@@ -19,7 +19,14 @@ Flix::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   #per gestire le risorse messe a disp dal modello degli ut e dal suo controllore
-  resources :users
+  #resources :users
+
+  # routes for the Users controller (default plus following and followers)
+  resources :users do
+     member do
+       get :following, :followers # per esempio: get /users/1/followers
+     end
+  end
 
   #per gestire risorse session (solo new, create and destroy)
   resources :sessions, only: [:new, :create, :destroy]
