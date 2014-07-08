@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   # controlla se l'utente è loggato per funz di modifica
-  before_filter :signed_in_user, only: [:edit, :update, :index, :destroy]
+  before_filter :signed_in_user, only: [:show, :edit, :update, :index, :destroy]
   # controlla se utente modifica proprio profilo (può mod solo il proprio)
   before_filter :correct_user, only: [:edit, :update]
   # controllo se l'utente corrente è amministratore
