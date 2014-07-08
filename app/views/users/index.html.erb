@@ -6,16 +6,7 @@
 <%= will_paginate @users %>
 
 <ul class="users">
-   <% @users.each do |user| %>
-        <li>
-          <%= gravatar_for user, size: 52 %>
-          <%= link_to user.name, user %>
-          <% if current_user.admin? && !current_user?(user) %>
-                 <% # con conferma azione in javascript... %>
-                 | <%= link_to 'elimina', user, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </li>
-   <% end %>
+  <%= render @users %>
 </ul>
 
 <%= will_paginate @users %>
