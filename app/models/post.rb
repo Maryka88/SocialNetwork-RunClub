@@ -29,4 +29,12 @@ class Post < ActiveRecord::Base
   # content sempre presente e massimo 500 caratteri
   validates :content, presence: true, length: {maximum: 500}
 
+  # prendo i post dell'utente più quelli scritti dagli utenti che segue
+  def self.from_users_followed_by(user)
+      followed_user_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
+
+       where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", user_id: user.id)
+  end
+
+
 end

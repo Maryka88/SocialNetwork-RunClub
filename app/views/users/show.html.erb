@@ -24,7 +24,7 @@
                 <%= render @posts %>
            </ol>
            <% # siamo nella view di User perciò occorre specificare cosa paginare  %>
-           <% will_paginate @posts %>
+           <%= will_paginate @posts %>
         <% end %>
     </div>
 </div>

@@ -12,6 +12,7 @@ class PostsController < ApplicationController
         flash[:success] = 'Post creato!'
         redirect_to root_url
     else
+        @feed_items = []
         render 'pages/home'
     end
   end
