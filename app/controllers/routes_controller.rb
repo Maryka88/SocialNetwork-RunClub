@@ -1,4 +1,7 @@
 class RoutesController < ApplicationController
+  # controllo se l'utente è loggato
+  before_filter :signed_in_user
+
   def index
   end
 
