@@ -1,5 +1,15 @@
 Flix::Application.routes.draw do
 
+  get "routes/index"
+
+  get "routes/new"
+
+  get "routes/create"
+
+  get "routes/show"
+
+  get "routes/destroy"
+
   get "relationships/create"
 
   get "relationships/destroy"

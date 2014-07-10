@@ -49,6 +49,7 @@ GEM
     execjs (2.2.0)
     faker (1.0.1)
       i18n (~> 0.4)
+    geocoder (1.2.2)
     gmaps4rails (2.1.2)
     hike (1.2.3)
     i18n (0.6.9)
@@ -121,6 +122,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.10)
   coffee-rails (~> 3.2.1)
   faker (= 1.0.1)
+  geocoder
   gmaps4rails
   jquery-rails
   rails (= 3.2.18)

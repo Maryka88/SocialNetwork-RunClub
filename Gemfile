@@ -37,6 +37,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.10'
 
 #gestione e visualizzazione route
+gem 'geocoder'
 gem 'gmaps4rails'
 
 # To use ActiveModel has_secure_password
