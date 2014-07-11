@@ -36,6 +36,9 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.10'
 
+# gemma per il sistema di messaggistica privato
+gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
+
 #gestione e visualizzazione route
 gem 'geocoder'
 gem 'gmaps4rails'

@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   #per usare sistema di autenticazione di Rails
   has_secure_password
 
+  # ogni utente può inviare/ricevere messaggi privati (graziee alla gemma simple-private-messages )
+  has_private_messages
+
   # ogni utente può avere più post, e se viene cancellato anche i suoi post vengono rimossi
   has_many :posts, dependent: :destroy
 
