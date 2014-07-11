@@ -1,14 +1,6 @@
 Flix::Application.routes.draw do
 
-  get "routes/index"
 
-  get "routes/new"
-
-  get "routes/create"
-
-  get "routes/show"
-
-  get "routes/destroy"
 
   get "relationships/create"
 
@@ -41,6 +33,8 @@ Flix::Application.routes.draw do
        get :following, :followers # per esempio: get /users/1/followers
      end
   end
+
+  resources :routes
 
   #per gestire risorse session (solo new, create and destroy)
   resources :sessions, only: [:new, :create, :destroy]
