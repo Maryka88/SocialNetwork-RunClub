@@ -16,6 +16,88 @@ html {
   overflow-y: scroll;
 }
 
+/* stile finestra modale */
+
+.modal{
+  overflow:hidden;
+  position:fixed;
+  top:10%;
+  left:50%;
+  z-index:1050;
+  width:560px;
+  max-height:420px;
+  margin-left:-280px;
+  background-color:#ffffff;
+  border:1px solid #999;
+  outline:none;
+
+  border-radius:6px;
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+
+  box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);
+}
+.modal.fade{
+    -webkit-transition:opacity .3s linear, top .3s ease-out;
+    -moz-transition:opacity .3s linear, top .3s ease-out;
+    -o-transition:opacity .3s linear, top .3s ease-out;
+    transition:opacity .3s linear, top .3s ease-out;
+    top:-25%;
+    &.in {
+      top:10%;
+    }
+}
+
+.modal-header{
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    .close{
+      margin-top:2px;
+    }
+    h3{
+      margin:0;
+      line-height:30px;
+    }
+}
+.modal-body{
+    position:relative;
+    padding:15px;
+}
+.modal-footer{
+    padding:14px 15px 15px;
+    margin-bottom:0;
+    text-align:right;
+    background-color:#f5f5f5;
+    border-top:1px solid #ddd;
+    -webkit-border-radius:0 0 6px 6px;
+    -moz-border-radius:0 0 6px 6px;
+    border-radius:0 0 6px 6px;
+    -webkit-box-shadow:inset 0 1px 0 #ffffff;
+    -moz-box-shadow:inset 0 1px 0 #ffffff;
+    box-shadow:inset 0 1px 0 #ffffff;
+    &:before, &:after {
+      display:table;
+      content:"";
+      line-height:0;
+    }
+    &:after {
+      clear:both;
+    }
+    .btn+.btn{
+      margin-left:5px;
+      margin-bottom:0;
+    }
+    .btn-group .btn+.btn{
+      margin-left:-1px;
+    }
+    .btn-block+.btn-block{
+      margin-left:0;
+    }
+}
+
+
 /* stile aside nella show dell'utente */
 
 aside {

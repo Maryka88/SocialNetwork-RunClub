@@ -1,4 +1,4 @@
-<div id="newMessage" class="modal hide fade">
+<div id="newMessage" class="modal fade">
   <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal">×</button>
   <h4>Messaggio per <%= @user.name %></h4>
@@ -10,10 +10,10 @@
          <%= f.hidden_field :sender, value: current_user.id %>
          <%= f.hidden_field :recipient, value: @user.id %>
 
-         <%= f.label :subject %>
+         <%= f.label :subject, 'Oggetto' %>
          <%= f.text_field :subject, value: @message.subject %>
 
-         <%= f.label :body %>
+         <%= f.label :body, 'Messaggio' %>
          <%= f.text_area :body %>
       </div>
     </div>
