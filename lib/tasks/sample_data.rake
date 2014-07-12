@@ -1,10 +1,11 @@
 namespace :db do
     desc "Inserisco faker data + admin nel db"
     task populate: :environment do
-    puts "Popolo il database..."
-    make_users
-    make_posts
-    make_relationships
+      puts "Popolo il database..."
+      make_users
+      make_posts
+      make_relationships
+      make_private_messages
     end
 end
 
@@ -49,4 +50,22 @@ def make_relationships
 
     followers.each { |follower| follower.follow!(user) }
     puts "... il primo utente viene seguito dagli utenti da 4 a 41, ora!"
+end
+
+def make_private_messages
+    # genero 10 messaggi fake per il primo utente
+    first_user = User.first
+    users = User.all
+    message_from_users = users[3..12]
+    message_from_users.each do |user|
+    msg_body = Faker::Lorem.sentence(8)
+    msg_subject = Faker::Lorem.sentence(3)
+    message = Message.new
+    message.sender = user
+    message.recipient = first_user
+    message.subject = msg_subject
+    message.body = msg_body
+    message.save!
+    end
+    puts "... creati 10 messaggi per il primo utente"
 end

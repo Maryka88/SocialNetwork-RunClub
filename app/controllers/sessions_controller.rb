@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
      if user && user.authenticate(params[:session][:password])
            # login ok
            sign_in user # sign in  del SessionsHelper
-           redirect_to user # redirect a profilo utente (redirect_to user_path(user))
+           redirect_to root_path # redirect a profilo utente (redirect_to user_path(user))
      else
            # mostro errori login con flash.now
            flash.now[:danger] = 'L\'indirizzo di posta elettronica o la password immessi non sono validi. Riprova'

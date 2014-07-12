@@ -3,8 +3,9 @@
   <button type="button" class="close" data-dismiss="modal">×</button>
   <h4>Messaggio per <%= @user.name %></h4>
   </div>
+
+  <%= form_for(@message) do |f| %>
     <div class="modal-body">
-    <%= form_for(@message) do |f| %>
       <div class="field">
          <%= f.hidden_field :sender, value: current_user.id %>
          <%= f.hidden_field :recipient, value: @user.id %>
@@ -21,5 +22,5 @@
     <%= f.submit 'Invia', class: 'btn btn-primary' %>
     </div>
 
-    <% end %>
+  <% end %>
 </div>
