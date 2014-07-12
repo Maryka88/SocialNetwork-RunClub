@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   # controllo se l'utente è loggato
   before_filter :signed_in_user
+
   # controllo se l'utente può cancellare il messaggio
   before_filter :correct_user, only: :destroy
 
