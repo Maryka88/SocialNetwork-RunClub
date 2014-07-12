@@ -1,33 +1,12 @@
-<h1>Routes#index</h1>
-<p>Find me in app/views/routes/index.html.erb</p>
+<!--imposto il titolo della pagina con il metodo provide.. assegno titolo a :title-->
+<% provide :title, 'Itinerari' %>
 
-<div style='width: 800px;'>
-  <div id="directions" style='width: 800px; height: 400px;'></div>
-</div>
+<h1>Itinerari</h1>
 
-<script type="text/javascript">
-    var directionsDisplay = new google.maps.DirectionsRenderer();
-    var directionsService = new google.maps.DirectionsService();
+<%= will_paginate @routes %>
 
-    function calcRoute() {
-        var origin      = new google.maps.LatLng(41.850033, -87.6500523);
-        var destination = new google.maps.LatLng(42.850033, -85.6500523);
-        var request = {
-            origin:      origin,
-            destination: destination,
-            travelMode:  google.maps.TravelMode.WALKING
-        };
-        directionsService.route(request, function(response, status) {
-            if (status == google.maps.DirectionsStatus.OK) {
-                directionsDisplay.setDirections(response);
-            }
-        });
-    }
+<ul class="users">
+  <%= render @routes %>
+</ul>
 
-    calcRoute();
-
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: {id: 'directions'}}, function(){
-        directionsDisplay.setMap(handler.getMap());
-    });
-</script>
+<%= will_paginate @routes %>

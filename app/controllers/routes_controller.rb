@@ -3,6 +3,10 @@ class RoutesController < ApplicationController
   before_filter :signed_in_user
 
   def index
+    # prendo tutti gli itinerari del db - senza paginazione
+    #@routes = Route.all
+    # prendo tutti gli itinerari del db - con pagination
+    @routes = Route.paginate(page: params[:page])
   end
 
   def new
