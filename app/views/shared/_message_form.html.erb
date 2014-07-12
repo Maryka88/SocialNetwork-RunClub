@@ -1,0 +1,25 @@
+<div id="newMessage" class="modal hide fade">
+  <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal">×</button>
+  <h4>Messaggio per <%= @user.name %></h4>
+  </div>
+    <div class="modal-body">
+    <%= form_for(@message) do |f| %>
+      <div class="field">
+         <%= f.hidden_field :sender, value: current_user.id %>
+         <%= f.hidden_field :recipient, value: @user.id %>
+
+         <%= f.label :subject %>
+         <%= f.text_field :subject, value: @message.subject %>
+
+         <%= f.label :body %>
+         <%= f.text_area :body %>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+    <%= f.submit 'Invia', class: 'btn btn-primary' %>
+    </div>
+
+    <% end %>
+</div>

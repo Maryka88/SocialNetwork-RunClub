@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
   # controlla se l'utente è loggato per funz di modifica
-  before_filter :signed_in_user, only: [:show, :edit, :update, :index, :destroy]
+  before_filter :signed_in_user, only: [:show, :edit, :update, :index, :destroy, :messages]
   # controlla se utente modifica proprio profilo (può mod solo il proprio)
-  before_filter :correct_user, only: [:edit, :update]
+  before_filter :correct_user, only: [:edit, :update, :messages]
   # controllo se l'utente corrente è amministratore
   before_filter :admin_user, only: :destroy
 
@@ -94,6 +94,13 @@ class UsersController < ApplicationController
      @user = User.find(params[:id])
      @users = @user.followers.paginate(page: params[:page])
      render 'show_follow'
+  end
+
+  # per vedere messaggi utente
+  def messages
+    # con le restrizioni correnti, l'utente è sempre il current_user
+    @user = User.find(params[:id])
+    @messages = @user.received_messages.paginate(page: params[:page])
   end
 
   private

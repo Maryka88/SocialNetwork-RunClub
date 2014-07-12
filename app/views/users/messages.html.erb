@@ -1,0 +1,12 @@
+<!--imposto il titolo della pagina con il metodo provide.. assegno titolo a :title, qui univoco-->
+<% provide :title, 'Messaggi' %>
+
+<h1>Messaggi ricevuti</h1>
+
+<%= will_paginate @messages %>
+
+<ul class="messages">
+    <%= render @messages %>
+</ul>
+
+<%= will_paginate @messages %>

@@ -14,4 +14,13 @@
      </strong>
      followers <!-- utenti che seguono -->
    </a>
+
+  <% if current_user?(@user) %>
+     <a href="<%= messages_user_path(@user) %>">
+     <strong id="unread_messages" class="stat">
+       <%= @user.unread_message_count %>
+     </strong>
+     messaggi
+     </a>
+  <% end %>
 </div>

@@ -15,6 +15,15 @@
       </section>
 
       <%= render 'follow_form' if signed_in? %>
+
+      <% if current_user.following?(@user) %>
+         <section>
+            <%= link_to 'Nuovo messaggio', new_message_path(user: @user.id), role: 'button', class: 'btn btn-info', remote: true %>
+            <div class="message"></div>
+         </section>
+      <% end %>
+
+
     </aside>
 
     <div class="col-md-8">
