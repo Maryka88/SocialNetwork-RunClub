@@ -1,7 +1,5 @@
 Flix::Application.routes.draw do
 
-
-
   get "relationships/create"
 
   get "relationships/destroy"
@@ -30,10 +28,11 @@ Flix::Application.routes.draw do
   # routes for the Users controller (default plus following and followers)
   resources :users do
      member do
-       get :following, :followers # per esempio: get /users/1/followers
+       get :following, :followers, :messages # per esempio: get /users/1/followers
      end
   end
 
+  # per gestione itinerari
   resources :routes
 
   #per gestire risorse session (solo new, create and destroy)
@@ -44,6 +43,9 @@ Flix::Application.routes.draw do
 
   # default routes per il Relationship controller (solo create e destroy -  necessari per costruire relaz follow/unfollow )
   resources :relationships, only: [:create, :destroy]
+
+  # default routes per il Messages controller (solo create and destroy - le altre operaz tramite Users controller)
+  resources :messages, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
