@@ -1,6 +1,6 @@
 <% # collegamento all'azione create per il Relationship controller %>
 <%= form_for(current_user.relationships.build(followed_id: @user.id), remote: true) do |f| %>
-    <% # il campo nascosto contiene informazioni necessarie per il following  %>
+    <!-- # il campo nascosto contiene informazioni necessarie per il following  -->
     <div><%= f.hidden_field :followed_id %></div>
     <%= f.submit 'Segui', class: 'btn btn-large btn-primary' %>
 <% end %>
