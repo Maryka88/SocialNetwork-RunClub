@@ -35,7 +35,7 @@ Flix::Application.routes.draw do
   # per gestione itinerari
   resources :routes
 
-  #per gestire risorse session (solo new, create and destroy)
+  # per gestire risorse session (solo new, create and destroy)
   resources :sessions, only: [:new, :create, :destroy]
 
   # default routes per il Posts controller (solo create e destroy - le altre operaz tramite Users controller)
