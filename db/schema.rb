@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140712160317) do
+ActiveRecord::Schema.define(:version => 20140713142040) do
 
   create_table "messages", :force => true do |t|
     t.integer  "sender_id"
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(:version => 20140712160317) do
     t.float    "latitude2"
     t.float    "longitude2"
   end
+
+  create_table "user_route_relationships", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "route_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "user_route_relationships", ["follower_id", "route_id"], :name => "index_user_route_relationships_on_follower_id_and_route_id", :unique => true
+  add_index "user_route_relationships", ["follower_id"], :name => "index_user_route_relationships_on_follower_id"
+  add_index "user_route_relationships", ["route_id"], :name => "index_user_route_relationships_on_route_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
