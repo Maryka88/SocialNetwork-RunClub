@@ -31,6 +31,8 @@ class RoutesController < ApplicationController
 
     # prendo e pagino i commenti associati all'itinerario
     @comment_routes = @route.comment_routes.paginate(page: params[:page])
+
+    @comment_route = current_user.comment_routes.build if signed_in?
   end
 
   def destroy

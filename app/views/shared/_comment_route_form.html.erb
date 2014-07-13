@@ -1,0 +1,10 @@
+<%= form_for(@comment_route) do |f| %>
+
+    <div class="row">
+      <div class="field col-md-12">
+        <%= f.text_area :content, placeholder: 'Scrivi qui il tuo commento' %>
+        <%= f.hidden_field :route_id, :value => @route.id %>
+        <%= f.submit 'Invia', class: 'btn btn-primary btn-home' %>
+      </div>
+    </div>
+<% end %>

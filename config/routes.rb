@@ -53,8 +53,11 @@ Flix::Application.routes.draw do
   # default routes per il UserRouteRelationship controller (solo create e destroy -  necessari per costruire relaz follow/unfollow )
   resources :user_route_relationships, only: [:create, :destroy]
 
-  # default routes per il Messages controller (solo create and destroy - le altre operaz tramite Users controller)
+  # default routes per il Messages controller (solo create e destroy - le altre operaz tramite Users controller)
   resources :messages, only: [:new, :create, :destroy]
+
+  # default routes per il CommentRoute controller (solo create e destroy - le altre operaz tramite Route controller)
+  resources :comment_routes, only: [:create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

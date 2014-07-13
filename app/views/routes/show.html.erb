@@ -2,6 +2,20 @@
 <% provide :title, @route.name %>
 
 <div class="row">
+  <% if session[:errors] %>
+      <div id="error_explanation">
+        <div class="alert alert-error">
+          Il form contiene <%= pluralize(session[:errors].count, "error") %>.
+        </div>
+        <ul>
+          <% session[:errors].each do |message| %>
+              <li>* <%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% session[:errors] = nil %>
+  <% end %>
+
   <aside class="col-md-4">
     <section>
       <img class="gravatar" src="/assets/googlem.jpg" />
@@ -53,6 +67,7 @@
     </script>
 
     <br />
+    <%= render 'shared/comment_route_form' %>
     <% if @route.comment_routes.any? %>
         <h3>Commenti (<%= @route.comment_routes.count %>)</h3>
         <ol class="posts">
