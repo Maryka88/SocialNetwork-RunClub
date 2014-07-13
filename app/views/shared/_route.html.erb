@@ -1,0 +1,14 @@
+<% if @routes.any? %>
+    <ol class="itineraries">
+        <% @routes.each do |route| %>
+            <li>
+              <img class="gravatar" src="/assets/googlem.jpg" width="52" height="52">
+              <strong><%= link_to route.name, route %></strong>
+              <p><%= route.difficulty %>
+                <% if current_user?(route.user) %>
+                    | <%= link_to 'elimina', route, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+                <% end %></p>
+            </li>
+        <% end %>
+    </ol>
+<% end %>

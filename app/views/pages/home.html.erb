@@ -3,6 +3,21 @@
 
 <% if signed_in? %>
     <div class="row">
+
+      <% if session[:errors] %>
+          <div id="error_explanation">
+            <div class="alert alert-error">
+              Il form contiene <%= pluralize(session[:errors].count, "error") %>.
+            </div>
+            <ul>
+              <% session[:errors].each do |message| %>
+                  <li>* <%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% session[:errors] = nil %>
+      <% end %>
+
        <aside class="col-md-3">
          <section>
             <%= render 'shared/user_info' %>
@@ -38,6 +53,7 @@
            <div class="tab-pane fade" id="routem">
              <br />
              <%= render 'shared/route_form' %>
+             <%= render 'shared/route' %>
            </div>
          </div>
 

@@ -13,7 +13,8 @@ class PostsController < ApplicationController
         redirect_to root_url
     else
         @feed_items = []
-        render 'pages/home'
+        session[:errors]=@post.errors.full_messages
+        redirect_to root_url
     end
   end
 
