@@ -1,0 +1,2 @@
+module UserRouteRelationshipsHelper
+end

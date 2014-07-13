@@ -1,9 +1,10 @@
 Flix::Application.routes.draw do
 
   get "relationships/create"
-
   get "relationships/destroy"
 
+  get "user_route_relationships/create"
+  get "user_route_relationships/destroy"
 
   #get "pages/home"
   #get "pages/about"
