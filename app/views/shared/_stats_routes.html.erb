@@ -1,0 +1,11 @@
+<% # questo parziale viene usato nella pagina itinerario %>
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= followers_route_path(@route) %>">
+    <strong id="followers" class="stat">
+      <%= @route.followers.count %>
+    </strong>
+    followers <!-- utenti che seguono -->
+  </a>
+
+</div>

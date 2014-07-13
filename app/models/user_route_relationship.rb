@@ -10,7 +10,7 @@
 #
 
 class UserRouteRelationship < ActiveRecord::Base
-  attr_accessible :route_id
+  attr_accessible :follower_id, :route_id
 
   # user_route_relationships con follower (User model)
   belongs_to :follower, class_name: 'User'

@@ -9,9 +9,12 @@
     </section>
     <section>
       <div class="stats">
-        <strong id="followers" class="stat">di <%= @route.user_id %></strong>
+        <strong id="followers" class="stat statsroutes">di <%= link_to @route.user.name, @route.user %></strong>
         <%= @route.difficulty %>
       </div>
+    </section>
+    <section>
+        <%= render 'shared/stats_routes' %>
     </section>
   </aside>
 

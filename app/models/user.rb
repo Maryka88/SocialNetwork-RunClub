@@ -75,9 +75,25 @@ class User < ActiveRecord::Base
     relationships.create!(followed_id: other_user.id)
   end
 
-  # non seguire più
+  # non seguire più l'uutente
   def unfollow!(other_user)
     relationships.find_by_followed_id(other_user.id).destroy
+  end
+
+
+  # sta seguendo l'itinerario dato?
+  def r_following?(r_route)
+    relationships.find_by_route_id(r_route.id)
+  end
+
+  # segui l'itinerario
+  def r_follow!(r_route)
+    relationships.create!(route_id: r_route.id)
+  end
+
+  # non seguire più l'itinerario
+  def r_unfollow!(r_route)
+        relationships.find_by_route_id(r_route.id).destroy
   end
 
   # prendo i post per visualizzarli nella bacheca

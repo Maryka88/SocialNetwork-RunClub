@@ -33,7 +33,11 @@ Flix::Application.routes.draw do
   end
 
   # per gestione itinerari
-  resources :routes
+  resources :routes do
+    member do
+      get :followers # per esempio: get /routes/1/followers
+    end
+  end
 
   # per gestire risorse session (solo new, create and destroy)
   resources :sessions, only: [:new, :create, :destroy]

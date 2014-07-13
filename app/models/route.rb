@@ -28,6 +28,12 @@ class Route < ActiveRecord::Base
   # eliminate anche le sue user_route_relationships
   has_many :user_route_relationships, foreign_key: 'route_id', dependent: :destroy
 
+  # ogni utente può avere molte "reverse" user_route_relationships
+  has_many :reverse_user_route_relationships, foreign_key: 'route_id', class_name: 'UserRouteRelationship', dependent: :destroy
+
+  # ogni itinerario può avere molti follower attraverso reverse user_route_relationships
+  has_many :followers, through: :reverse_user_route_relationships
+
   # user_id e coordinate sempre presenti
   validates :user_id, :latitude, :longitude, :latitude2, :longitude2, :presence => true
 
