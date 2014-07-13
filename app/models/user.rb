@@ -25,8 +25,11 @@ class User < ActiveRecord::Base
   # ogni utente può avere più post, e se viene cancellato anche i suoi post vengono rimossi
   has_many :posts, dependent: :destroy
 
-  #ogni utente può avere più itinerari, e se viene cancellato anche i suoi itinerari vengono rimossi
+  # ogni utente può avere più itinerari, e se viene cancellato anche i suoi itinerari vengono rimossi
   has_many :routes, dependent: :destroy
+
+  # ogni utente può avere più comment_routes, e se viene cancellato anche i suoi commenti vengono rimossi
+  has_many :comment_routes, dependent: :destroy
 
   # ogni utente può avere molte relationship
   # definiamo esplicitamente la chiave esterna e facciamo in modo che se l'utente viene eliminato, vengono

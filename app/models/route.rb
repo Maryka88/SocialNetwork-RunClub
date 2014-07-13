@@ -37,6 +37,9 @@ class Route < ActiveRecord::Base
   # user_id e coordinate sempre presenti
   validates :user_id, :latitude, :longitude, :latitude2, :longitude2, :presence => true
 
+  # ogni itinerario può avere più comment_routes, e se viene cancellato anche i suoi commenti vengono rimossi
+  has_many :comment_routes, dependent: :destroy
+
   # name sempre presente e unico
   validates :name, :presence => true, :uniqueness => true
 
