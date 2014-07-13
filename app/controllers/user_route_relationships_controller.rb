@@ -3,7 +3,7 @@ class UserRouteRelationshipsController < ApplicationController
   before_filter :signed_in_user
 
   def create
-    @route = Route.find(params[:user_route_relationships][:route_id])
+    @route = Route.find(params[:user_route_relationship][:route_id])
     current_user.r_follow!(@route)
     # senza javascript:
     redirect_to @route
