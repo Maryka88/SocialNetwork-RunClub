@@ -35,6 +35,14 @@ class RoutesController < ApplicationController
     redirect_to root_url
   end
 
+  # azioni per visualizzare elenco utenti che seguono itinerario
+  def followers
+    @title = 'Followers'
+    @route = Route.find(params[:id])
+    @users = @route.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
   private
 
   def correct_user
