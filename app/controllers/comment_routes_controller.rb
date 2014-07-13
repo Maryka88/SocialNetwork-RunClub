@@ -1,0 +1,2 @@
+class CommentRoutesController < ApplicationController
+end

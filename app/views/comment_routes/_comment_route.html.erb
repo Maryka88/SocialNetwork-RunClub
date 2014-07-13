@@ -1,0 +1,6 @@
+<li>
+  <span class="content"><%= comment_route.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(comment_route.created_at) %> ago, by <%= link_to comment_route.user.name, comment_route.user %>
+  </span>
+</li>

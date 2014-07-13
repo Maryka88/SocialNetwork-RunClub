@@ -28,6 +28,9 @@ class RoutesController < ApplicationController
   def show
     # prendo la route con id :id
     @route = Route.find(params[:id])
+
+    # prendo e pagino i commenti associati all'itinerario
+    @comment_routes = @route.comment_routes.paginate(page: params[:page])
   end
 
   def destroy

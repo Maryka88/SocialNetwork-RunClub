@@ -11,7 +11,7 @@
 #
 
 class CommentRoute < ActiveRecord::Base
-  attr_accessible :content, :route_id, :user_id
+  attr_accessible :content, :user_id
 
   # ogni commento è collegato a uno specifico utente
   belongs_to :user

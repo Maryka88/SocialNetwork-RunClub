@@ -51,5 +51,14 @@
             directionsDisplay.setMap(handler.getMap());
         });
     </script>
+
+    <br />
+    <% if @route.comment_routes.any? %>
+        <h3>Commenti (<%= @route.comment_routes.count %>)</h3>
+        <ol class="posts">
+            <%= render @comment_routes %>
+        </ol>
+        <% will_paginate @comment_routes %>
+    <% end %>
   </div>
 </div>
