@@ -33,6 +33,11 @@ class User < ActiveRecord::Base
   # eliminate anche le sue relationship
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
 
+  # ogni utente può avere molte user_route_relationships
+  # definiamo esplicitamente la chiave esterna e facciamo in modo che se l'utente viene eliminato, vengono
+  # eliminate anche le sue user_route_relationships
+  has_many :user_route_relationships, foreign_key: 'follower_id', dependent: :destroy
+
   # ogni utente può avere molti followed users, attraverso la tabella relationships
   # siccome followed_users non esiste, indichiamo a Rails la colonna corretta della tab relat. (con source: "followed_id")
   has_many :followed_users, through: :relationships, source: :followed

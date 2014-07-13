@@ -23,6 +23,11 @@ class Route < ActiveRecord::Base
   # ordine decrescente della data di creaz per il get degli itinerari
   default_scope order: 'routes.created_at DESC'
 
+  # ogni itinerario può avere molte user_route_relationships
+  # definiamo esplicitamente la chiave esterna e facciamo in modo che se l'itinerario viene eliminato, vengono
+  # eliminate anche le sue user_route_relationships
+  has_many :user_route_relationships, foreign_key: 'route_id', dependent: :destroy
+
   # user_id e coordinate sempre presenti
   validates :user_id, :latitude, :longitude, :latitude2, :longitude2, :presence => true
 
