@@ -83,17 +83,17 @@ class User < ActiveRecord::Base
 
   # sta seguendo l'itinerario dato?
   def r_following?(r_route)
-    relationships.find_by_route_id(r_route.id)
+    user_route_relationships.find_by_route_id(r_route.id)
   end
 
   # segui l'itinerario
   def r_follow!(r_route)
-    relationships.create!(route_id: r_route.id)
+    user_route_relationships.create!(route_id: r_route.id)
   end
 
   # non seguire più l'itinerario
   def r_unfollow!(r_route)
-        relationships.find_by_route_id(r_route.id).destroy
+    user_route_relationships.find_by_route_id(r_route.id).destroy
   end
 
   # prendo i post per visualizzarli nella bacheca

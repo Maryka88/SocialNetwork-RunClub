@@ -4,6 +4,7 @@ Flix::Application.routes.draw do
 
   get "relationships/destroy"
 
+
   #get "pages/home"
   #get "pages/about"
   #get "pages/contact"
@@ -47,6 +48,9 @@ Flix::Application.routes.draw do
 
   # default routes per il Relationship controller (solo create e destroy -  necessari per costruire relaz follow/unfollow )
   resources :relationships, only: [:create, :destroy]
+
+  # default routes per il UserRouteRelationship controller (solo create e destroy -  necessari per costruire relaz follow/unfollow )
+  resources :user_route_relationships, only: [:create, :destroy]
 
   # default routes per il Messages controller (solo create and destroy - le altre operaz tramite Users controller)
   resources :messages, only: [:new, :create, :destroy]

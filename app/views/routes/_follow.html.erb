@@ -1,0 +1,6 @@
+<% # collegamento all'azione create per il UserRouteRelationship controller %>
+<%= form_for(current_user.user_route_relationships.build(route_id: @route.id)) do |f| %>
+    <!-- # il campo nascosto contiene informazioni necessarie per il following  -->
+    <div><%= f.hidden_field :route_id %></div>
+    <%= f.submit 'Segui', class: 'btn btn-large btn-primary' %>
+<% end %>

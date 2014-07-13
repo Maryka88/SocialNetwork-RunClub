@@ -1,0 +1,4 @@
+<% # collegamento all'azione destroy del UserRouteRelationship controller %>
+<%= form_for(current_user.user_route_relationships.find_by_route_id(@route), html: { method: :delete } ) do |f| %>
+    <%= f.submit 'Non seguire più', class: 'btn btn-large' %>
+<% end %>
