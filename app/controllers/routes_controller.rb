@@ -9,12 +9,15 @@ class RoutesController < ApplicationController
     @routes = Route.paginate(page: params[:page]).order('created_at DESC')
   end
 
-  def new
-    # genero temporaneamente un nuovo itinerario
-    #@route = Route.create(name: 'Percorso1', latitude: '41.891071', longitude: '12.633463', user_id: '1', difficulty: 'facile', latitude2: '41.944299', longitude2: '12.55998')
-  end
-
   def create
+    # creo nuovo itinerario da info contenute nel form
+    @route = current_user.routes.build(params[:route])
+    if @route.save
+      flash[:success] = 'Itinerario creato!'
+      redirect_to root_url
+    else
+      render 'pages/home'
+    end
   end
 
   def show

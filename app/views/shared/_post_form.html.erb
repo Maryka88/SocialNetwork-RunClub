@@ -1,7 +1,7 @@
 <%= form_for(@post) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="row">
-      <div class="field col-md-9">
+      <div class="field col-md-10">
         <%= f.text_field :title, placeholder: 'Titolo' %>
         <%= f.text_area :content, placeholder: 'Cosa stai facendo?' %>
         <%= f.submit 'Invia', class: 'btn btn-primary btn-home' %>

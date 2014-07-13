@@ -50,7 +50,7 @@
         <!-- itinerary -->
         <div class="tab-pane fade" id="routem">
           <% if @user.routes.any? %>
-              <ol class="posts">
+              <ol class="itineraries">
                 <%= render @routes %>
               </ol>
               <% # siamo nella view di User perciò occorre specificare cosa paginare  %>

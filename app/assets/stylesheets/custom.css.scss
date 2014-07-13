@@ -204,15 +204,16 @@ input {
   }
 }
 
-/* posts e messaggi*/
+/* posts, messaggi e itinerari*/
 
-.posts, .messages {
+.posts, .messages, .itineraries {
   list-style: none;
   margin: 10px 0 0 0;
   padding-left: 0;
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    clear: both;
     }
 }
 

@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @post = current_user.posts.build if signed_in?
+    @route = current_user.routes.build if signed_in?
     @feed_items = current_user.feed.paginate(page: params[:page]) if signed_in?
   end
 

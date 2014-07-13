@@ -11,11 +11,37 @@
          <section>
             <%= render 'shared/stats' %>
          </section>
+
+         <!--<section>
+           <a href="/routes/new" class="btn btn-success btn-lg" role="button">Nuovo Itinerario</a>
+         </section>-->
        </aside>
        <div class="col-md-9">
-         <%= render 'shared/post_form' %>
-         <h3>Bacheca</h3>
-         <%= render 'shared/feed' %>
+
+         <!-- Nav tabs -->
+         <ul class="nav nav-tabs" role="tablist">
+           <!-- posts -->
+           <li class="active"><a href="#postm" role="tab" data-toggle="tab"><h3>Bacheca</h3></a></li>
+           <!-- itinerary -->
+           <li><a href="#routem" role="tab" data-toggle="tab"><h3>Itinerari</h3></a></li>
+         </ul>
+
+         <!-- Tab panes -->
+         <div class="tab-content">
+           <!-- posts -->
+           <div class="tab-pane fade in active" id="postm">
+             <br />
+             <%= render 'shared/post_form' %>
+             <%= render 'shared/feed' %>
+           </div>
+           <!-- itinerary -->
+           <div class="tab-pane fade" id="routem">
+             <br />
+             <%= render 'shared/route_form' %>
+           </div>
+         </div>
+
+
        </div>
     </div>
 <% else %>
