@@ -15,13 +15,21 @@
 #
 
 class Route < ActiveRecord::Base
-  attr_accessible :latitude, :longitude, :user_id, :latitude2, :longitude2, :name, :difficulty
+  attr_accessible :latitude, :longitude, :latitude2, :longitude2, :name, :difficulty
 
-  belongs_to :user, :foreign_key => 'user_id'
+  # ogni itinerario è associato a uno specifico utente
+  belongs_to :user
 
-  validates :latitude, :longitude, :latitude2, :longitude2, :presence => true
+  # ordine decrescente della data di creaz per il get degli itinerari
+  default_scope order: 'routes.created_at DESC'
+
+  # user_id e coordinate sempre presenti
+  validates :user_id, :latitude, :longitude, :latitude2, :longitude2, :presence => true
+
+  # name sempre presente e unico
   validates :name, :presence => true, :uniqueness => true
 
+  # coordinate uniche (a coppia)
   validates :longitude, :uniqueness => {:scope => :latitude}
   validates :longitude2, :uniqueness => {:scope => :latitude2}
 

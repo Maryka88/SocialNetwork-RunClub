@@ -6,7 +6,7 @@ class RoutesController < ApplicationController
     # prendo tutti gli itinerari del db - senza paginazione
     #@routes = Route.all
     # prendo tutti gli itinerari del db - con pagination
-    @routes = Route.paginate(page: params[:page])
+    @routes = Route.paginate(page: params[:page]).order('created_at DESC')
   end
 
   def new

@@ -13,6 +13,9 @@ class UsersController < ApplicationController
 
     # prende e pagina i post associati a un dato utente
     @posts = @user.posts.paginate(page: params[:page])
+
+    # prende e pagina gli itinerari associati a un dato utente
+    @routes = @user.routes.paginate(page: params[:page]).order('created_at DESC')
   end
 
   def new
