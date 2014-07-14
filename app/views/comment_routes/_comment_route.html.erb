@@ -3,4 +3,7 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(comment_route.created_at) %> ago, by <%= link_to comment_route.user.name, comment_route.user %>
   </span>
+  <% if (current_user==comment_route.user || current_user==@route.user) %>
+    | <%= link_to 'elimina', comment_route, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+  <% end %>
 </li>

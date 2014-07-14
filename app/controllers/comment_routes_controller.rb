@@ -2,9 +2,11 @@ class CommentRoutesController < ApplicationController
   # controllo se l'utente è loggato
   before_filter :signed_in_user
 
-  # controllo se utente segue
-  #before_filter :correct_user, only: :create
+  # controllo se l'utente può creare il commento
+  before_filter :correct_user2, only: :create
 
+  # controllo se l'utente può cancellare il commento
+  before_filter :correct_user, only: :destroy
 
   def create
     # creo nuovo commento da info contenute in "new comment" form
@@ -23,13 +25,38 @@ class CommentRoutesController < ApplicationController
     end
   end
 
+  def destroy
+    @comment_route.destroy
+    flash[:success] = 'Commento eliminato!'
+    redirect_to :back
+  end
+
   private
 
-  # redirect a home se l'utente corrente non è quello "giusto"
-  #def correct_user
-    # inizializza l'oggetto @user (tolto da funz edit e update)
-    #@user = User.find(params[:id])
-    #redirect_to root_path unless current_user?(@user) # il met current_user?(user)è definito nel SessionsHelper
-  #end
+  def correct_user
+    # l'utente ha un commento con l'id fornito?
+    @comment_route = current_user.comment_routes.find_by_id(params[:id])
+
+    if @comment_route.nil?
+      @comment_route = CommentRoute.find_by_id(params[:id])
+      @route = Route.find_by_id(@comment_route.route_id)
+
+      # se no, redirect a homepage
+      redirect_to :back if (current_user!=@route.user)
+    end
+
+  end
+
+  def correct_user2
+
+    @route = Route.find_by_id(params[:route_id])
+
+    if (current_user!=@route.user)
+      # se no, redirect a homepage
+      redirect_to :back unless current_user.r_following?(@route)
+    end
+
+  end
+
 
 end

@@ -6,6 +6,8 @@ Flix::Application.routes.draw do
   get "user_route_relationships/create"
   get "user_route_relationships/destroy"
 
+  get "comment_routes/destroy"
+
   #get "pages/home"
   #get "pages/about"
   #get "pages/contact"
