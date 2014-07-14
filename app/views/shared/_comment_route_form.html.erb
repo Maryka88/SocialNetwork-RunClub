@@ -1,10 +1,14 @@
-<%= form_for(@comment_route) do |f| %>
+<% if (current_user.r_following?(@route) || current_user==@route.user) %>
+    <%= form_for(@comment_route) do |f| %>
 
-    <div class="row">
-      <div class="field col-md-12">
-        <%= f.text_area :content, placeholder: 'Scrivi qui il tuo commento' %>
-        <%= f.hidden_field :route_id, :value => @route.id %>
-        <%= f.submit 'Invia', class: 'btn btn-primary btn-home' %>
-      </div>
-    </div>
+        <div class="row">
+          <div class="field col-md-12">
+            <%= f.text_area :content, placeholder: 'Scrivi qui il tuo commento' %>
+            <%= hidden_field_tag "route_id", @route.id %>
+            <%= hidden_field_tag "user_id", current_user.id %>
+            <%= f.submit 'Invia', class: 'btn btn-primary btn-home' %>
+          </div>
+        </div>
+
+    <% end %>
 <% end %>
