@@ -35,17 +35,6 @@ ActiveRecord::Schema.define(:version => 20140715181308) do
     t.datetime "updated_at",                           :null => false
   end
 
-  create_table "pictures", :force => true do |t|
-    t.string   "url"
-    t.integer  "user_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.string   "pic_file_name"
-    t.string   "pic_content_type"
-    t.integer  "pic_file_size"
-    t.datetime "pic_updated_at"
-  end
-
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.string   "content"

@@ -8,6 +8,7 @@ Flix::Application.routes.draw do
 
   get "comment_routes/destroy"
 
+
   #get "pages/home"
   #get "pages/about"
   #get "pages/contact"
