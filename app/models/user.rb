@@ -28,6 +28,9 @@ class User < ActiveRecord::Base
   # ogni utente può avere più itinerari, e se viene cancellato anche i suoi itinerari vengono rimossi
   has_many :routes, dependent: :destroy
 
+  # ogni utente può avere più immagini, e se viene cancellato anche le sue immagini vengono rimosse
+  has_many :pictures, dependent: :destroy
+
   # ogni utente può avere più comment_routes, e se viene cancellato anche i suoi commenti vengono rimossi
   has_many :comment_routes, dependent: :destroy
 

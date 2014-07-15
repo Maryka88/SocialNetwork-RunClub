@@ -47,6 +47,9 @@ gem 'gmaps4rails'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bcrypt-ruby', '~> 3.0.0' #presente ma commentato - per funzioni di hash
 
+#paperclip
+gem 'paperclip','~> 3.0'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
