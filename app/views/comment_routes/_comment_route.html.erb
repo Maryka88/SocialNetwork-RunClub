@@ -1,9 +1,23 @@
-<li>
-  <span class="content"><%= comment_route.content %></span>
+<!--<li class="comment-route-post">
+  <span class="content"><%#= comment_route.content %></span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(comment_route.created_at) %> ago, by <%= link_to comment_route.user.name, comment_route.user %>
+    Posted <%#= time_ago_in_words(comment_route.created_at) %> ago, by <%#= link_to comment_route.user.name, comment_route.user %>
   </span>
-  <% if (current_user==comment_route.user || current_user==@route.user) %>
-    | <%= link_to 'elimina', comment_route, method: :delete, data: { confirm: 'Sei sicuro?' } %>
-  <% end %>
-</li>
+  <%# if (current_user==comment_route.user || current_user==@route.user) %>
+    | <%#= link_to 'elimina', comment_route, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+  <%# end %>
+</li>-->
+
+<div class="media comment_section">
+  <div class="pull-left post_comments">
+  </div>
+  <div class="media-body post_reply_comments postnoborder">
+    <h4><%= link_to comment_route.user.name, comment_route.user %></h4>
+    <p>Posted <%= time_ago_in_words(comment_route.created_at) %> ago</p>
+    <h4><%= comment_route.content %></h4>
+    <% if (current_user==comment_route.user || current_user==@route.user) %>
+        <img src="/assets/delete.png" width="30" height="24" /> <%= link_to 'elimina', comment_route, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+    <% end %>
+
+  </div>
+</div>

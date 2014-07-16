@@ -9,7 +9,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "SocialNetwork", root_path, class: "navbar-brand" %>
+      <a href="/"><img src="/assets/logo3.png" width="230" height="82" class="logorunclub" /></a>
+      <%#= link_to "SocialNetwork", root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Link menu principale -->
@@ -37,3 +38,51 @@
     </div> <!--/.nav-collapse -->
   </div> <!-- /.container-fluid -->
 </header>
+
+<% if current_page?(root_path) %>
+    <div class="row">
+      <!-- Carousel
+        ================================================== -->
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="/assets/slider1.jpg" class=img-slider" />
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Allenati con noi su Run Club</h1>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="/assets/slider2.jpg" class=img-slider" />
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Preparati al meglio e condividi i tuoi obiettivi</h1>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="/assets/slider3.jpg"  class=img-slider" />
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>Il Run Club ti mette in contatto con il mondo</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      </div><!-- /.carousel -->
+    </div>
+<% else %>
+    <div class="row">
+        <img src="/assets/slidermini.jpg"  class=img-slider2" />
+    </div>
+    <br /><br />
+<% end %>

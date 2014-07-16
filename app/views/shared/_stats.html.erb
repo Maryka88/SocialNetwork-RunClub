@@ -1,7 +1,7 @@
 <% # questo parziale viene usato nella home e nel profilo utente
 # nella home @user = nil e deve essere riempito %>
 <% @user ||= current_user %>
-<div class="stats">
+<div class="stats statsprof">
    <a href="<%= following_user_path(@user) %>">
      <strong id="following" class="stat">
        <%= @user.followed_users.count %>

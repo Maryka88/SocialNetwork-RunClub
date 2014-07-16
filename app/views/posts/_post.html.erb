@@ -1,10 +1,28 @@
-<li>
-  <strong><%= post.title %></strong>
-  <span class="content"><%= post.content %></span>
+<!--<li>
+  <strong><%#= post.title %></strong>
+  <span class="content"><%#= post.content %></span>
   <span class="timestamp">
-   Posted <%= time_ago_in_words(post.created_at) %> ago
+   Posted <%#= time_ago_in_words(post.created_at) %> ago
   </span>
-  <% if current_user?(post.user) %>
-      | <%= link_to 'elimina', post, method: :delete, data: { confirm: 'Sei sicuro?' }, title: post.content %>
-  <% end %>
-</li>
+  <%# if current_user?(post.user) %>
+      | <%#= link_to 'elimina', post, method: :delete, data: { confirm: 'Sei sicuro?' }, title: post.content %>
+  <%# end %>
+</li>-->
+
+<div class="media comment_section">
+  <div class="pull-left post_comments">
+  </div>
+  <div class="media-body post_reply_comments postwithborder">
+    <h3 class="titlepostpag"><%= post.title %></h3>
+    <h4><%= post.content %></h4>
+    <p class="postelimina">
+
+      Posted <%= time_ago_in_words(post.created_at) %> ago |
+      <% if current_user?(post.user) %>
+          <img src="/assets/delete.png" width="30" height="24" /> <%= link_to 'elimina', post, method: :delete, data: { confirm: 'Sei sicuro?' }, title: post.content %>
+      <% end %>
+
+    </p>
+
+  </div>
+</div>

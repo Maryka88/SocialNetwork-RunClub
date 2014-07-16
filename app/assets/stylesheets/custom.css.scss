@@ -19,88 +19,142 @@ html {
 /* stile finestra modale */
 
 .modal{
-  overflow:hidden;
-  position:fixed;
-  top:10%;
-  left:50%;
-  z-index:1050;
-  width:560px;
-  max-height:420px;
-  margin-left:-280px;
-  background-color:#ffffff;
-  border:1px solid #999;
-  outline:none;
+  overflow: hidden;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  z-index: 1050;
+  width: 560px;
+  max-height: 420px;
+  margin-left: -280px;
+  background-color: #ffffff;
+  border: 1px solid #999;
+  outline: none;
 
-  border-radius:6px;
-  -webkit-border-radius:6px;
-  -moz-border-radius:6px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
 
-  box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 }
 .modal.fade{
-    -webkit-transition:opacity .3s linear, top .3s ease-out;
-    -moz-transition:opacity .3s linear, top .3s ease-out;
-    -o-transition:opacity .3s linear, top .3s ease-out;
-    transition:opacity .3s linear, top .3s ease-out;
-    top:-25%;
+    -webkit-transition: opacity .3s linear, top .3s ease-out;
+    -moz-transition: opacity .3s linear, top .3s ease-out;
+    -o-transition: opacity .3s linear, top .3s ease-out;
+    transition: opacity .3s linear, top .3s ease-out;
+    top: -25%;
     &.in {
-      top:10%;
+      top: 10%;
     }
 }
 
 .modal-header{
-    padding:9px 15px;
-    border-bottom:1px solid #eee;
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
     .close{
-      margin-top:2px;
+      margin-top: 2px;
     }
     h3{
-      margin:0;
-      line-height:30px;
+      margin: 0;
+      line-height: 30px;
     }
 }
 .modal-body{
-    position:relative;
-    padding:15px;
+    position: relative;
+    padding: 15px;
 }
 .modal-footer{
-    padding:14px 15px 15px;
-    margin-bottom:0;
-    text-align:right;
-    background-color:#f5f5f5;
-    border-top:1px solid #ddd;
-    -webkit-border-radius:0 0 6px 6px;
-    -moz-border-radius:0 0 6px 6px;
-    border-radius:0 0 6px 6px;
-    -webkit-box-shadow:inset 0 1px 0 #ffffff;
-    -moz-box-shadow:inset 0 1px 0 #ffffff;
-    box-shadow:inset 0 1px 0 #ffffff;
+    padding: 14px 15px 15px;
+    margin-bottom: 0;
+    text-align: right;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    -webkit-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+    -webkit-box-shadow: inset 0 1px 0 #ffffff;
+    -moz-box-shadow: inset 0 1px 0 #ffffff;
+    box-shadow: inset 0 1px 0 #ffffff;
     &:before, &:after {
-      display:table;
-      content:"";
-      line-height:0;
+      display: table;
+      content: "";
+      line-height: 0;
     }
     &:after {
-      clear:both;
+      clear: both;
     }
     .btn+.btn{
-      margin-left:5px;
-      margin-bottom:0;
+      margin-left: 5px;
+      margin-bottom: 0;
     }
     .btn-group .btn+.btn{
-      margin-left:-1px;
+      margin-left: -1px;
     }
     .btn-block+.btn-block{
-      margin-left:0;
+      margin-left: 0;
     }
 }
 
+/* classi base del Carousel */
+.carousel {
+  margin: {
+    bottom: 60px;
+    /* margin negativo per il pull up del carousel (altezza navbar) */
+    top: -90px;
+  }
+
+  /* altezza per posizionamento immagini */
+  .item {
+    height: 500px;
+    background-color: #777;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 500px;
+    }
+  }
+}
+/* per visualizzare i caption*/
+.carousel-caption {
+  z-index: 10;
+}
+
+.carousel-control {
+  top: 20px;
+}
+
+.img-slider {
+  width: 100%;
+}
+.img-slider2 {
+  width: 100%;
+  margin-left: 0;
+}
+
+/* stile header e menu */
+img.logorunclub {
+  padding: 8px;
+}
+
+.navbar-nav > li > a {
+  color: #E30430 !important;
+  font-size: 18px;
+  padding-top: 25px;
+}
+
+.dropdown-menu {
+  font-size: 18px;
+}
 
 /* stile aside nella show dell'utente */
 
 aside {
+
     section {
       padding: 10px 0;
       border-top: 1px solid $gray-lighter;
@@ -115,7 +169,7 @@ aside {
         }
         h1 {
           font-size: 1.4em;
-          text-align: left;
+
           letter-spacing: -1px;
           margin-bottom: 3px;
           margin-top: 0px;
@@ -125,10 +179,14 @@ aside {
 
 .stats {
   overflow: auto;
-    a {
-      float: left;
+  text-align: right;
+    p {
       padding: 0 10px;
-      border-left: 1px solid $gray-lighter;
+    }
+    a {
+      float: right;
+      padding: 0 10px;
+      border-right: 1px solid $gray-lighter;
       color: gray;
         &:first-child {
           padding-left: 0;
@@ -144,6 +202,13 @@ aside {
     }
 }
 
+.statsprof a {
+  float: left;
+}
+
+.strongtitroute {
+  display: inline;
+}
 .statsroutes a {
   float:none;
   color: #428BCA;
@@ -158,8 +223,14 @@ aside {
 
 
 .gravatar {
+  float: right;
+  margin-right: 0px;
+}
+
+.gravatar2 {
   float: left;
-  margin-right: 10px;
+  margin-top: 30px;
+  margin-right: 20px;
 }
 
 /* form */
@@ -245,21 +316,115 @@ strong {
   color: $gray-light;
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
 
 .field {
     textarea {
       height: 100px;
       margin-bottom: 5px;
+      border-radius: 5px;
     }
+
+}
+
+input {
+  border-radius: 5px;
 }
 .btn-home {
   max-width: 30%;
   @extend .pull-right;
 }
+
+/* commenti itinerari */
+
+.comment_section {
+  margin-top: 30px;
+  position: relative;
+}
+
+.post_comments img {
+  width: 85px;
+  height: 85px;
+  margin-top: 35px;
+}
+
+.post_reply_comments {
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 0 30px 20px 30px;
+
+  h3{
+    margin-top: 0;
+  }
+
+  h1 a:hover{
+    color:#c52d2f;
+  }
+
+  h4{
+    padding-bottom: 10px;
+  }
+
+  p {
+
+    color:#c4c4c5;
+    font-weight:400;
+  }
+
+  h4 {
+    a {
+      bottom: 15px;
+      position: absolute;
+      right: 30px;
+      background: #E30430;
+      color: #fff;
+      border-radius: 5px;
+      padding: 8px 20px;
+    }
+
+    a:before {
+      border-color: #E30430 transparent transparent;
+      border-style: solid;
+      border-width: 16px;
+      bottom: -11px;
+      content: "";
+      height: 0;
+      left: -12px;
+      position: absolute;
+      z-index: 99999;
+    }
+
+  }
+
+}
+
+.post_reply_comments:before {
+  border: {
+    color: transparent #F0F0F0 transparent transparent;
+    style: solid;
+    width: 15px;
+  }
+  content: " ";
+  position: absolute;
+  height: 0;
+  left: -15px;
+  top: 20px;
+
+
+}
+.postwithborder {
+  margin-left: 15px;
+}
+.postnoborder:before {
+  border: none;
+}
+
+h3.titlepostpag {
+  padding-top: 30px;
+}
+.postelimina {
+  float: right;
+}
+
 
 /* varie */
 

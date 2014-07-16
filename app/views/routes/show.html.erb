@@ -16,22 +16,7 @@
       <% session[:errors] = nil %>
   <% end %>
 
-  <aside class="col-md-4">
-    <section>
-      <img class="gravatar" src="/assets/googlem.jpg" />
-      <h1><%= @route.name %></h1>
-    </section>
-    <section>
-      <div class="stats">
-        <strong id="followers" class="stat statsroutes">di <%= link_to @route.user.name, @route.user %></strong>
-        <%= @route.difficulty %>
-      </div>
-    </section>
-    <section>
-        <%= render 'shared/stats_routes' %>
-    </section>
-    <%= render 'follow_form' if signed_in? %>
-  </aside>
+
 
   <div class="col-md-8">
 
@@ -67,7 +52,7 @@
     </script>
 
     <br />
-    <%= render 'shared/comment_route_form' %>
+
     <% if @route.comment_routes.any? %>
         <h3>Commenti (<%= @route.comment_routes.count %>)</h3>
         <ol class="posts">
@@ -76,4 +61,24 @@
         <% will_paginate @comment_routes %>
     <% end %>
   </div>
+
+  <aside class="col-md-4">
+    <section>
+      <h1><strong class="strongtitroute"><%= @route.name %></strong> di <%= link_to @route.user.name, @route.user %></h1>
+    </section>
+    <section>
+      <div class="stats">
+
+        <p><%= @route.difficulty %></p>
+      </div>
+    </section>
+    <section>
+      <%= render 'shared/stats_routes' %>
+    </section>
+    <%= render 'follow_form' if signed_in? %>
+    <br />
+
+    <%= render 'shared/comment_route_form' %>
+  </aside>
+
 </div>

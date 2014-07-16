@@ -1,8 +1,26 @@
-<li>
+<!--<li>
   <img class="gravatar" src="/assets/googlem.jpg" width="52" height="52">
-  <strong><%= link_to route.name, route %></strong>
-  <p><%= route.difficulty %>
-  <% if current_user?(route.user) %>
-      | <%= link_to 'elimina', route, method: :delete, data: { confirm: 'Sei sicuro?' } %>
-   <% end %></p>
-</li>
+  <strong><%#= link_to route.name, route %></strong>
+  <p><%#= route.difficulty %>
+  <%# if current_user?(route.user) %>
+      | <%#= link_to 'elimina', route, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+   <%# end %></p>
+</li>-->
+
+<div class="media comment_section">
+  <div class="pull-left post_comments">
+  </div>
+  <div class="media-body post_reply_comments postwithborder">
+    <img class="gravatar2" src="/assets/plan2.png" width="52" height="52">
+    <h3 class="titlepostpag"><%= link_to route.name, route %></h3>
+    <h4><%= route.difficulty %></h4>
+    <p class="postelimina">
+
+      <% if current_user?(route.user) %>
+          <img src="/assets/delete.png" width="30" height="24" /> <%= link_to 'elimina', route, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+      <% end %>
+
+    </p>
+
+  </div>
+</div>
