@@ -2,20 +2,24 @@
 #
 # Table name: routes
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  latitude   :float
-#  longitude  :float
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer
-#  difficulty :string(255)
-#  latitude2  :float
-#  longitude2 :float
+#  id             :integer          not null, primary key
+#  name           :string(255)
+#  latitude       :float
+#  longitude      :float
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  user_id        :integer
+#  difficulty     :string(255)
+#  latitude2      :float
+#  longitude2     :float
+#  distance       :integer
+#  type_distance  :string(255)
+#  timeroute      :integer
+#  type_timeroute :string(255)
 #
 
 class Route < ActiveRecord::Base
-  attr_accessible :latitude, :longitude, :latitude2, :longitude2, :name, :difficulty
+  attr_accessible :latitude, :longitude, :latitude2, :longitude2, :name, :difficulty, :distance, :type_distance, :timeroute, :type_timeroute
 
   # ogni itinerario è associato a uno specifico utente
   belongs_to :user
@@ -46,5 +50,9 @@ class Route < ActiveRecord::Base
   # coordinate uniche (a coppia)
   validates :longitude, :uniqueness => {:scope => :latitude}
   validates :longitude2, :uniqueness => {:scope => :latitude2}
+
+  #distanza percorsa e tempo
+  validates :distance, :presence => true, :numericality => true
+  validates :timeroute, :presence => true, :numericality => true
 
 end

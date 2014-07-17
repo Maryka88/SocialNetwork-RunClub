@@ -99,42 +99,43 @@ html {
 
 /* classi base del Carousel */
 .carousel {
-  margin: {
-    bottom: 60px;
-    /* margin negativo per il pull up del carousel (altezza navbar) */
-    top: -90px;
-  }
-
-  /* altezza per posizionamento immagini */
-  .item {
-    height: 500px;
-    background-color: #777;
-
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 500px;
+    margin-bottom: 60px;
+    margin-top:-85px;
+    .carousel-inner {
+        height:100%;
+        .bg {
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+        .bg1 {
+            background-image:url(/assets/slider1.jpg);
+            background-position: center top;
+        }
+        .bg2 {
+          background-image:url(/assets/slider2.jpg);
+          background-position: center center;
+        }
+        .bg3 {
+          background-image:url(/assets/slider3.jpg);
+          background-position: center bottom;
+        }
     }
-  }
+    .item {
+        background-color: #777;
+        height:500px;
+        .active {
+            height:100%;
+        }
+    }
 }
-/* per visualizzare i caption*/
+
 .carousel-caption {
   z-index: 10;
 }
-
 .carousel-control {
-  top: 20px;
+  margin-top: 20px;
 }
 
-.img-slider {
-  width: 100%;
-}
-.img-slider2 {
-  width: 100%;
-  margin-left: 0;
-}
 
 /* stile header e menu */
 img.logorunclub {
