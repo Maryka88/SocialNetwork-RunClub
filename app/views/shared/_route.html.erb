@@ -1,14 +1,32 @@
 <% if @routes.any? %>
     <ol class="itineraries">
         <% @routes.each do |route| %>
-            <li>
+            <!--<li>
               <img class="gravatar" src="/assets/googlem.jpg" width="52" height="52">
-              <strong><%= link_to route.name, route %></strong>
-              <p><%= route.difficulty %>
+              <strong><%#= link_to route.name, route %></strong>
+              <p><%#= route.difficulty %>
+                <%# if current_user?(route.user) %>
+                    | <%#= link_to 'elimina', route, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+                <%# end %></p>
+            </li>-->
+          <div class="media comment_section">
+            <div class="pull-left post_comments">
+            </div>
+            <div class="media-body post_reply_comments postwithborder">
+              <h4><%= link_to route.user.name, route.user %></h4>
+              <img class="gravatar3" src="/assets/plan2.png" width="52" height="52">
+              <h3><%= link_to route.name, route %></h3>
+              <h4><%= route.difficulty %></h4>
+              <p class="postelimina2">
+
                 <% if current_user?(route.user) %>
-                    | <%= link_to 'elimina', route, method: :delete, data: { confirm: 'Sei sicuro?' } %>
-                <% end %></p>
-            </li>
+                    <img src="/assets/delete.png" width="30" height="24" /> <%= link_to 'elimina', route, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+                <% end %>
+
+              </p>
+
+            </div>
+          </div>
         <% end %>
     </ol>
 <% end %>

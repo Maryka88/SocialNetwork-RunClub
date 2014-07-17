@@ -1,13 +1,33 @@
-<li id="<%= feed_item.id %>">
-    <%= link_to gravatar_for(feed_item.user), feed_item.user %>
+<!--<li id="<%= feed_item.id %>">
+    <%#= link_to gravatar_for(feed_item.user), feed_item.user %>
 
     <span class="user">
-     <%= link_to feed_item.user.name, feed_item.user %>
+     <%#= link_to feed_item.user.name, feed_item.user %>
     </span>
 
-    <strong><%= feed_item.title %></strong>
-    <span class="content"><%= feed_item.content %></span>
+    <strong><%#= feed_item.title %></strong>
+    <span class="content"><%#= feed_item.content %></span>
     <span class="timestamp">
-    Posted <%= time_ago_in_words(feed_item.created_at) %> ago
+    Posted # time_ago_in_words(feed_item.created_at) %> ago
    </span>
-</li>
+</li>-->
+
+<div class="media comment_section">
+  <div class="pull-left post_comments">
+  </div>
+  <div class="media-body post_reply_comments postwithborder">
+
+    <h4><%= link_to feed_item.user.name, feed_item.user %></h4>
+    <h3><%= feed_item.title %></h3>
+    <h4><%= feed_item.content %></h4>
+    <p>
+
+      Posted <%= time_ago_in_words(feed_item.created_at) %> ago |
+      <% if current_user?(feed_item.user) %>
+          <img src="/assets/delete.png" width="30" height="24" /> <%= link_to 'elimina', feed_item, method: :delete, data: { confirm: 'Sei sicuro?' }, title: feed_item.content %>
+      <% end %>
+
+    </p>
+
+  </div>
+</div>

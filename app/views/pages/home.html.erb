@@ -19,48 +19,8 @@
           <% session[:errors] = nil %>
       <% end %>
 
-       <aside class="col-md-3">
-         <section>
-            <%= render 'shared/user_info' %>
-         </section>
 
-         <section>
-            <%= render 'shared/stats' %>
-         </section>
-
-         <style type="text/css">
-             #canvas-holder{
-                 width:50%;
-             }
-         </style>
-
-         <div id="canvas-holder">
-             <canvas id="canvas" width="500" height="500"></canvas>
-         </div>
-
-         <script type="application/x-javascript">
-             var data = [
-                 {
-                     value: <%=current_user.routes.count%>,
-                     color:"#F7464A",
-                     highlight: "#FF5A5E",
-                     label: "Red"
-                 },
-                 {
-                     value: <%=current_user.posts.count%>,
-                     color: "#46BFBD",
-                     highlight: "#5AD3D1",
-                     label: "Green"
-                 }
-             ]
-             var myNewChart = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(data, {responsive : true});
-         </script>
-
-         <!--<section>
-           <a href="/routes/new" class="btn btn-success btn-lg" role="button">Nuovo Itinerario</a>
-         </section>-->
-       </aside>
-       <div class="col-md-9">
+       <div class="col-md-8">
 
          <!-- Nav tabs -->
          <ul class="nav nav-tabs" role="tablist">
@@ -88,6 +48,50 @@
 
 
        </div>
+
+      <aside class="col-md-4">
+        <section>
+          <%= render 'shared/user_info' %>
+        </section>
+
+        <section>
+          <%= render 'shared/stats' %>
+        </section>
+
+        <style type="text/css">
+            #canvas-holder{
+                width:50%;
+            }
+        </style>
+
+        <div id="canvas-holder">
+          <canvas id="canvas" width="500" height="500"></canvas>
+        </div>
+
+        <script type="application/x-javascript">
+            var data = [
+                {
+                    value: <%=current_user.routes.count%>,
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Red",
+                    indexLabel: "Android"
+                },
+                {
+                    value: <%=current_user.posts.count%>,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Green",
+                    indexLabel: "Android2"
+                }
+            ]
+            var myNewChart = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(data, {responsive : true});
+        </script>
+
+        <!--<section>
+          <a href="/routes/new" class="btn btn-success btn-lg" role="button">Nuovo Itinerario</a>
+        </section>-->
+      </aside>
     </div>
 <% else %>
 
