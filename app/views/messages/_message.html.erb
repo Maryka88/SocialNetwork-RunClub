@@ -1,5 +1,5 @@
 <li>
-  <%= gravatar_for message.sender, size: 52 %>
+  <img class="gravatar" src="/assets/message.png" width="62">
   <strong>Da: </strong><%= link_to message.sender.name, message.sender %>
   <span class="content">
     <strong><%= message.subject %></strong>

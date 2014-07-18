@@ -8,9 +8,9 @@
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <!-- posts -->
-        <li class="active"><a href="#postm" role="tab" data-toggle="tab"><h3>Posts <% if @user.posts.any? %>(<%= @user.posts.count %>)<% end %></h3></a></li>
+        <li class="active"><a href="#postm" role="tab" data-toggle="tab"><h3 class="titolitabuser">Posts <% if @user.posts.any? %>(<%= @user.posts.count %>)<% end %></h3></a></li>
         <!-- itinerary -->
-        <li><a href="#routem" role="tab" data-toggle="tab"><h3>Itineraries <% if @user.routes.any? %>(<%= @user.routes.count %>)<% end %></h3></a></li>
+        <li><a href="#routem" role="tab" data-toggle="tab"><h3 class="titolitabuser">Itineraries <% if @user.routes.any? %>(<%= @user.routes.count %>)<% end %></h3></a></li>
       </ul>
       <br />
       <!-- Tab panes -->
@@ -40,25 +40,67 @@
     </div>
 
   <aside class="col-md-4">
-    <section>
+    <section class="sezgravatar">
+      <!--img gravatar-->
+      <%= gravatar_for @user %>
+    </section>
+    <section class="sezusername">
       <h1>
-        <!--img gravatar-->
-        <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
     </section>
     <section>
-      <%= render 'shared/stats' %>
+      <%#= render 'shared/stats' %>
     </section>
 
     <%= render 'follow_form' if signed_in? %>
 
     <% if current_user.following?(@user) %>
         <section>
-          <%= link_to 'Nuovo messaggio', new_message_path(user: @user.id), role: 'button', class: 'btn btn-info', remote: true %>
+          <%= link_to 'Nuovo messaggio', new_message_path(user: @user.id), role: 'button', class: 'btn btn-info btnmessage', remote: true %>
           <div class="message"></div>
         </section>
     <% end %>
+
+    <div class="col-md-6">
+      <ul class="doughnut-legend">
+        <li><a href="<%= following_user_path(@user) %>"><span style="background-color:#F7464A"></span><%= @user.followed_users.count %> following</a></li>
+        <li><a href="<%= followers_user_path(@user) %>"><span style="background-color:#46BFBD"></span><%= @user.followers.count %> followers</a></li>
+        <% if current_user?(@user) %>
+            <li><a href="<%= messages_user_path(@user) %>"><span style="background-color:#FC3"></span><%= @user.unread_message_count %> messages</a></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-6">
+        <div id="canvas-holder">
+          <canvas id="canvas" width="500" height="500"></canvas>
+        </div>
+    </div>
+
+
+    <script type="application/x-javascript">
+        var data = [
+            {
+                value: <%= @user.followed_users.count %>,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "following"
+            },
+            {
+                value: <%= @user.followers.count %>,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "followers"
+            }<% if current_user?(@user) %>,
+            {
+                value: <%= @user.unread_message_count %>,
+                color: "#FC3",
+                highlight: "#5AD3D1",
+                label: "messages"
+            }<% end %>
+        ]
+        var myNewChart = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(data, {responsive : true});
+    </script>
 
 
   </aside>

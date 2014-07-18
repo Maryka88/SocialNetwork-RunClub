@@ -17,9 +17,9 @@
     <h4><%= post.content %></h4>
     <p class="postelimina">
 
-      Posted <%= time_ago_in_words(post.created_at) %> ago |
+      Posted <%= time_ago_in_words(post.created_at) %> ago
       <% if current_user?(post.user) %>
-          <img src="/assets/delete.png" width="30" height="24" /> <%= link_to 'elimina', post, method: :delete, data: { confirm: 'Sei sicuro?' }, title: post.content %>
+          |   <img src="/assets/delete.png" width="30" height="24" /> <%= link_to 'elimina', post, method: :delete, data: { confirm: 'Sei sicuro?' }, title: post.content %>
       <% end %>
 
     </p>

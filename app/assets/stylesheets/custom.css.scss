@@ -15,7 +15,9 @@ $gray-medium-light: #eaeaea;
 html {
   overflow-y: scroll;
 }
-
+p.testoabout {
+  text-align: center;
+}
 /* stile finestra modale */
 
 .modal{
@@ -99,30 +101,38 @@ html {
 
 /* classi base del Carousel */
 .carousel {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     margin-top:-85px;
     .carousel-inner {
         height:100%;
         .bg {
-            background-repeat:no-repeat;
-            background-size:cover;
+            background: {
+                repeat: no-repeat;
+                size:cover;
+            }
         }
         .bg1 {
-            background-image:url(/assets/slider1.jpg);
-            background-position: center top;
+            background: {
+                image: url(/assets/slider1.jpg);
+                position:center center;
+            }
         }
         .bg2 {
-          background-image:url(/assets/slider2.jpg);
-          background-position: center center;
+            background: {
+              image: url(/assets/slider2.jpg);
+              position:center center;
+            }
         }
         .bg3 {
-          background-image:url(/assets/slider3.jpg);
-          background-position: center bottom;
+            background: {
+              image: url(/assets/slider3.jpg);
+              position:center center;
+            }
         }
     }
     .item {
         background-color: #777;
-        height:500px;
+        height:400px;
         .active {
             height:100%;
         }
@@ -133,7 +143,7 @@ html {
   z-index: 10;
 }
 .carousel-control {
-  margin-top: 20px;
+  margin-top: 80px;
 }
 
 
@@ -148,6 +158,24 @@ img.logorunclub {
   padding-top: 25px;
 }
 
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: #E30430;
+  color:#fff;
+  border:none;
+}
+.nav-tabs > li > a {
+  background-color: #F8F8F8;
+  color: #E30430;
+  border-bottom: 1px solid #E30430;
+}
+.nav-tabs {
+  border-bottom: 1px solid #E30430;
+  margin-left: 15px;
+}
+h3.titolitabuser {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .dropdown-menu {
   font-size: 18px;
 }
@@ -178,11 +206,23 @@ aside {
     }
 }
 
+.sezgravatar img {
+  width: 52px;
+}
+.sezusername {
+  padding-top: 12px;
+  border:none;
+}
+.sezusername2 {
+  padding-top: 12px;
+  border:none;
+}
 .stats {
   overflow: auto;
   text-align: right;
     p {
       padding: 0 10px;
+      text-align: center;
     }
     a {
       float: right;
@@ -203,8 +243,9 @@ aside {
     }
 }
 
-.statsprof a {
-  float: left;
+.statsprof a{
+  float: right;
+  margin-bottom: 20px;
 }
 
 .strongtitroute {
@@ -239,7 +280,59 @@ aside {
   margin-top: 0px;
   margin-right: 20px;
 }
+.imgheader {
+  margin-left: 0px;
+}
 
+/* colonna destra */
+.doughnut-legend {
+  list-style: none;
+  position: absolute;
+  right: 8px;
+  top: 0;
+}
+.doughnut-legend li {
+  display: block;
+  padding-left: 30px;
+  position: relative;
+  margin-bottom: 4px;
+  border-radius: 5px;
+  padding: 2px 8px 2px 28px;
+  font-size: 14px;
+  cursor: default;
+  -webkit-transition: background-color 200ms ease-in-out;
+  -moz-transition: background-color 200ms ease-in-out;
+  -o-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+}
+.doughnut-legend li span {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 20px;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.btnmessage {
+  width: 100%;
+  margin-bottom: 20px;
+}
+li.formli {
+  width: 50%;
+}
+#postm2, #routem2 {
+  border: 1px solid #E30430;
+  border-top:none;
+  border-bottom-left-radius:4px;
+  border-bottom-right-radius:4px;
+  padding: 0px 5px 10px;
+}
+
+.tabpostroute {
+  margin-left: 0;
+}
 /* form */
 
 input, textarea, select, .uneditable-input {

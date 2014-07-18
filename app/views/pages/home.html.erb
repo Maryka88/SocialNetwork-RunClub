@@ -25,9 +25,9 @@
          <!-- Nav tabs -->
          <ul class="nav nav-tabs" role="tablist">
            <!-- posts -->
-           <li class="active"><a href="#postm" role="tab" data-toggle="tab"><h3>Bacheca</h3></a></li>
+           <li class="active"><a href="#postm" role="tab" data-toggle="tab"><h3 class="titolitabuser">Bacheca</h3></a></li>
            <!-- itinerary -->
-           <li><a href="#routem" role="tab" data-toggle="tab"><h3>Itinerari</h3></a></li>
+           <li><a href="#routem" role="tab" data-toggle="tab"><h3 class="titolitabuser">Itinerari</h3></a></li>
          </ul>
 
          <!-- Tab panes -->
@@ -35,13 +35,11 @@
            <!-- posts -->
            <div class="tab-pane fade in active" id="postm">
              <br />
-             <%= render 'shared/post_form' %>
              <%= render 'shared/feed' %>
            </div>
            <!-- itinerary -->
            <div class="tab-pane fade" id="routem">
              <br />
-             <%= render 'shared/route_form' %>
              <%= render 'shared/route' %>
            </div>
          </div>
@@ -51,6 +49,12 @@
 
       <aside class="col-md-4">
         <section>
+          <% # current user gravatar %>
+          <a href="<%= user_path(current_user) %>">
+            <%= gravatar_for current_user, size: 52 %>
+          </a>
+        </section>
+        <section class="sezusername">
           <%= render 'shared/user_info' %>
         </section>
 
@@ -58,35 +62,31 @@
           <%= render 'shared/stats' %>
         </section>
 
-        <style type="text/css">
-            #canvas-holder{
-                width:50%;
-            }
-        </style>
+        <div class="col-md-12">
 
-        <div id="canvas-holder">
-          <canvas id="canvas" width="500" height="500"></canvas>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tabpostroute" role="tablist">
+              <!-- posts -->
+              <li class="formli active"><a href="#postm2" role="tab" data-toggle="tab">Nuovo Post</a></li>
+              <!-- itinerary -->
+              <li class="formli "><a href="#routem2" role="tab" data-toggle="tab">Nuovo Itinerario</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <!-- posts -->
+              <div class="tab-pane fade in active" id="postm2">
+                <br />
+                <%= render 'shared/post_form' %>
+              </div>
+              <!-- itinerary -->
+              <div class="tab-pane fade" id="routem2">
+                <br />
+                <%= render 'shared/route_form' %>
+              </div>
+            </div>
+
         </div>
-
-        <script type="application/x-javascript">
-            var data = [
-                {
-                    value: <%=current_user.routes.count%>,
-                    color:"#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Red",
-                    indexLabel: "Android"
-                },
-                {
-                    value: <%=current_user.posts.count%>,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Green",
-                    indexLabel: "Android2"
-                }
-            ]
-            var myNewChart = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(data, {responsive : true});
-        </script>
 
         <!--<section>
           <a href="/routes/new" class="btn btn-success btn-lg" role="button">Nuovo Itinerario</a>
@@ -94,14 +94,17 @@
       </aside>
     </div>
 <% else %>
+    <div class="row ">
+        <div class="col-md-2"></div>
+        <div class="col-md-8"> <!--classi bootstrap -->
 
-    <div class="jumbotron text-center"> <!--classi bootstrap -->
-        <h1>Benvenuto nel SocialNetwork<br />di Marika</h1>
-        <h2>
-            Registrati o fai il <%= link_to "Login", signin_path %> <%#= link_to "SocialNetwork", root_path %>.
-        </h2>
+            <h2>
+               Benvenuto nel Run Club! Il Social Network dedicato alla corsa!.<br /><br />
+              <%= link_to "Registrati!", signup_path %> o fai il <%= link_to "Login", signin_path %> <%#= link_to "SocialNetwork", root_path %>.
+            </h2>
 
-        <%= link_to "Registrati!", signup_path, class:"btn btn-primary btn-lg", role:"button"%> <!--classi bootstrap -->
+        </div>
+        <div class="col-md-2"></div>
     </div>
 
 <% end %>

@@ -1,14 +1,14 @@
 <%= form_for(@route) do |f| %>
 
     <div class="row">
-      <div class="field col-md-8">
+      <div class="field col-md-12">
         <%= f.text_field :name, placeholder: 'Nome' %>
-        <div class="field col-md-2 titololatlong">Origine:</div>
-        <div class="field col-md-4"><%= f.text_field :latitude, placeholder: 'latitudine' %></div>
-        <div class="field col-md-4"><%= f.text_field :longitude, placeholder: 'longitudine' %></div>
-        <div class="field col-md-2 titololatlong">Destinazione:</div>
-        <div class="field col-md-4"><%= f.text_field :latitude2, placeholder: 'latitudine' %></div>
-        <div class="field col-md-4"><%= f.text_field :longitude2, placeholder: 'longitudine' %></div>
+        <div class="field col-md-2 titololatlong">Partenza:</div>
+        <div class="field col-md-5"><%= f.text_field :latitude, placeholder: 'latitudine' %></div>
+        <div class="field col-md-5"><%= f.text_field :longitude, placeholder: 'longitudine' %></div>
+        <div class="field col-md-2 titololatlong">Arrivo:</div>
+        <div class="field col-md-5"><%= f.text_field :latitude2, placeholder: 'latitudine' %></div>
+        <div class="field col-md-5"><%= f.text_field :longitude2, placeholder: 'longitudine' %></div>
 
         <div class="field col-md-2 titololatlong">Difficoltà:</div>
         <div class="field col-md-8">
@@ -18,6 +18,24 @@
             <option>difficile</option>
           </select>
         </div>
+
+        <div class="field col-md-2 titololatlong">Distanza:</div>
+        <div class="field col-md-5"><%= f.text_field :distance, placeholder: '0' %></div>
+        <div class="field col-md-5">
+          <select name="route[type_distance]" id="route_difficulty">
+              <option>metri</option>
+              <option>chilometri</option>
+            </select>
+        </div>
+        <div class="field col-md-2 titololatlong">Tempo:</div>
+        <div class="field col-md-5"><%= f.text_field :timeroute, placeholder: '0' %></div>
+        <div class="field col-md-5">
+          <select name="route[type_timeroute]" id="route_difficulty">
+            <option>minuti</option>
+            <option>ore</option>
+          </select>
+        </div>
+
         <!--<div class="field col-md-3"><%#= f.text_field :lenghtroute, placeholder: 'lunghezza' %></div>
         <div class="field col-md-3"><%#= f.text_field :timeroute, placeholder: 'tempo' %></div>-->
         <div style="clear: both"></div>

@@ -1,9 +1,10 @@
 <% unless current_user?(@route.user) %>
-    <div id="follow_form">
+    <div id="follow_form  btnmessage">
       <% if current_user.r_following?(@route) %>
           <%= render 'unfollow' %>
       <% else %>
           <%= render 'follow' %>
       <% end %>
-    </div>
+    </div
+    <br />
 <% end %>

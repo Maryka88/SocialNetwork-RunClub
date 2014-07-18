@@ -2,15 +2,35 @@
 <% provide(:title, @title) %>
 
 <div class="row">
+
+
+  <div class="col-md-8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+        <ul class="users">
+          <% @users.each do |user| %>
+              <li>
+                <%= gravatar_for user, size: 52 %>
+                <h3><%= link_to user.name, user %></h3>
+                <% if current_user.admin? && !current_user?(user) %>
+                    <!-- con conferma azione in javascript -->
+                    | <%= link_to 'elimina', user, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+                <% end %>
+              </li>
+          <% end %>
+        </ul>
+        <%= will_paginate @users %>
+    <% end %>
+  </div>
+
   <aside class="col-md-4">
     <section>
-      <img class="gravatar" src="/assets/googlem.jpg" />
-      <h1><%= @route.name %></h1>
+      <h1><strong class="strongtitroute"><%= @route.name %></strong> di <%= link_to @route.user.name, @route.user %></h1>
     </section>
     <section>
       <div class="stats">
-        <strong id="followers" class="stat statsroutes">di <%= link_to @route.user.name, @route.user %></strong>
-        <%= @route.difficulty %>
+
+        <p><%= @route.distance %> <%= @route.type_distance %> - <%= @route.timeroute %> <%= @route.type_timeroute %> | <%= @route.difficulty %></p>
       </div>
     </section>
 
@@ -26,22 +46,4 @@
     </section>
   </aside>
 
-  <div class="col-md-8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-        <ul class="users">
-          <% @users.each do |user| %>
-              <li>
-                <%= gravatar_for user, size: 52 %>
-                <%= link_to user.name, user %>
-                <% if current_user.admin? && !current_user?(user) %>
-                    <!-- con conferma azione in javascript -->
-                    | <%= link_to 'elimina', user, method: :delete, data: { confirm: 'Sei sicuro?' } %>
-                <% end %>
-              </li>
-          <% end %>
-        </ul>
-        <%= will_paginate @users %>
-    <% end %>
-  </div>
 </div>

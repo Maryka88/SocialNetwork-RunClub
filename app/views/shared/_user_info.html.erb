@@ -1,9 +1,6 @@
-<% # current user gravatar %>
-<a href="<%= user_path(current_user) %>">
-    <%= gravatar_for current_user, size: 52 %>
-</a>
+
 
 <% # current user name, link sul suo profilo e numero di post pubblicati %>
-<h1><%= current_user.name %></h1>
-<span><%= link_to 'Profilo', current_user %></span>
-<span><%= pluralize(current_user.posts.count, 'post') %> - <%= pluralize(current_user.routes.count, 'itineraries') %></span>
+<h1><%= link_to current_user.name , current_user %></h1>
+<!--<span><%#= link_to current_user.name , current_user %></span>
+<span><%#= pluralize(current_user.posts.count, 'post') %> - <%#= pluralize(current_user.routes.count, 'itineraries') %></span>-->
